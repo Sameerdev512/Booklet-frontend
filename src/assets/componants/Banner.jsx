@@ -1,9 +1,9 @@
 import React from 'react'
 import '../scss/style.scss'
 
-const Banner = () => {
+const Banner = ({url}) => {
   return (
-    <div className="banner-container d-flex flex-row align-items-end justify-content-around rouded-4">
+    <div className="banner-container d-flex flex-row align-items-end justify-content-around rouded-4 " style={{backgroundImage:{url}}}>
       <div className="details d-flex">
         <div className="left d-flex flex-column justify-content-end">
           <div><span>Frank Miler</span></div>

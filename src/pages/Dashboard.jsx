@@ -13,6 +13,12 @@ import Banner from "../assets/componants/Banner";
 import Card from "../assets/Card";
 
 const Dashboard = () => {
+  const dummyData = [
+    { title: "The Flash, Vol 1", author: "joshua Williamson", url: "images/01.png" },
+    { title: "Titans Vol 2", author: "Andrew Robinson", url: "images/02.png" },
+    { title: "Harly Quinn, Vol 1", author: "Jimmy Palmiotti", url: "images/03.png" },
+    { title: "Suicide Squad #8", author: "Tom Taylor", url: "images/04.png" },
+  ];
   return (
     <div className="dashboard-container d-flex flex-row">
       <div className="left-section  d-flex  flex-column align-items-center ">
@@ -51,9 +57,14 @@ const Dashboard = () => {
 
       <div className="right-section d-flex flex-column ">
         <nav className="d-flex flex-row  my-4">
-          <div className="left d-flex search-bar w-50">
-            <input type="" className="form-control cu-input p-2" />
-            <FaSearch style={{position:"absolute",left:"61%",top:"6%"}}/>
+          <div className="left d-flex search-bar justify-content-center">
+            <input
+              type=""
+              className="form-control cu-input p-2"
+              placeholder="Search here..."
+              color="white"
+            />
+            {/* <FaSearch style={{position:"absolute",left:"61%",top:"6%"}}/> */}
           </div>
           <div className="right d-flex flex-row w-25 justify-content-center">
             <div
@@ -68,11 +79,14 @@ const Dashboard = () => {
           </div>
         </nav>
 
-        <div class="hero-section d-flex  justify-content-evenly my-3">
+        <div class="hero-section d-flex justify-content-evenly my-3">
           <div class="left banner ">
-            <Banner />
+            <Banner url="images/banner.png"/>
           </div>
-          <div class="right"><h4>Continue Reading</h4><Card/> </div>
+          <div class="right">
+            <h4>Continue Reading</h4>
+            <Card author="Kobra Kai: Ultimate" url="images/05.png" />{" "}
+          </div>
         </div>
 
         <div className="last-section d-flex flex-column align-items-start">
@@ -80,14 +94,11 @@ const Dashboard = () => {
             <span>Top Rated Comics</span>
           </div>
           <div className="comics d-flex flex-row justify-content-start flex-wrap">
-            <Card />
-            <Card />
-
-            <Card />
-
-            <Card />
-            <Card />
-            <Card />
+            {dummyData.map((item) => {
+              return (
+                <Card title={item.title} author={item.author} url={item.url} />
+              );
+            })}
           </div>
         </div>
       </div>

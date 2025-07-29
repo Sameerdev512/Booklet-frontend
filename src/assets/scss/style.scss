@@ -69,12 +69,12 @@
     //right container of sign-in page
     .signin-right {
         background-image: url('images/b.png');
-        object-fit: cover;
+        object-fit: contain;
         background-position: right;
         background-repeat: no-repeat;
 
         @media(max-width:1085px) {
-            background-image: url('images/batman.png');
+            background-image: url('images/b.png');
         }
     }
 
@@ -120,25 +120,38 @@
     .right-section {
         align-items: center;
         width: 80vw;
-        overflow: scroll;
+        overflow: auto;
 
         nav {
             width: 100%;
             justify-content: space-evenly;
             align-items: center;
+            left:20%;
 
             .left {
-                width: 80%;
+                width: 70%;
 
                 .cu-input {
+                    width:50vw;
                     position: relative;
-                    left:-7%;
+                    left:0%;
                     background-color: #282837;
                     border: 1px solid white;
-                    width: 125%;
+                    // width: 125%;
+                    border-radius: 12px;
                     color: white;
                 }
 
+                .cu-input::placeholder
+                {
+                    color: white;
+                    opacity: 0.5;
+                }
+
+            }
+
+            .right{
+                width:10%;
             }
 
             img {
@@ -164,6 +177,7 @@
         .last-section{
             width:90%;
             margin-top: 3vh;
+            padding-bottom:5vh;
             .heading{
                 font-size: 1.5rem;
                 font-weight: bolder;
@@ -178,11 +192,13 @@
 }
 .banner-container {
     width: 100%;
-    object-fit: contain;
     border-radius: 10px;
     height: 60vh;
     margin-bottom: 20px;
     background-image: url('images/batman.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+    object-fit:inherit;
 
     .details {
         width: 90%;
@@ -212,7 +228,7 @@
     margin-top:2vw;
     img{
         width:200px;
-        height:250px;
+        height:220px;
         border-radius: 10px;
     }
 

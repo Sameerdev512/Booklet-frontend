@@ -63,4 +63,16 @@
   .login-container .right {
     background-image: url("images/s.png");
   }
+}
+.login-container .signin-right {
+  background-image: url("images/b.png");
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+@media (max-width: 1085px) {
+  .login-container .signin-right {
+    background-image: url("images/batman.png");
+  }
 }/*# sourceMappingURL=style.css.map */

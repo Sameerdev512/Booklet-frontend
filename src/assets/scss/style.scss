@@ -35,7 +35,7 @@
                 background-color: #282837;
                 border: 1px solid white;
                 width: 25vw;
-                color:white;
+                color: white;
 
                 @media(max-width:992px) {
                     width: 30vw;
@@ -61,9 +61,20 @@
         object-fit: cover;
         background-repeat: no-repeat;
 
-        @media(min-width:1080px)
-        {
+        @media(min-width:1080px) {
             background-image: url('images/s.png');
+        }
+    }
+
+    //right container of sign-in page
+    .signin-right {
+        background-image: url('images/b.png');
+        object-fit: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+
+        @media(max-width:1085px) {
+            background-image: url('images/batman.png');
         }
     }
 }

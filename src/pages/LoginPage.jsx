@@ -50,7 +50,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="right w-50 bg-secondary">right</div>
+      <div className="right w-50 bg-secondary"></div>
     </div>
   );
 };

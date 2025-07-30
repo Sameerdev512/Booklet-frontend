@@ -6,17 +6,18 @@ const Banner = ({url}) => {
     <div className="banner-container d-flex flex-row align-items-end justify-content-around rouded-4 " style={{backgroundImage:{url}}}>
       <div className="details d-flex">
         <div className="left d-flex flex-column justify-content-end">
+          {/* <img src="images/banner.png"></img> */}
           <div><span>Frank Miler</span></div>
-          <div>
+          <div style={{width:"max-content"}}>
             <span className='title'>
               Batman:<br></br>
               The Dark Knight
             </span>
           </div>
         </div>
-        <div className="right">
+        <div className="right d-flex justify-content-center" style={{width:"100%"}}>
           <div>
-            <button class="btn btn-primary rounded-5 fs-6 fw-bold  px-4 py-2 ">
+            <button class="btn btn-primary rounded-5 fs-6 fw-bold  px-lg-4 py-lg-2 ">
               Read Now{" "}
             </button>
           </div>

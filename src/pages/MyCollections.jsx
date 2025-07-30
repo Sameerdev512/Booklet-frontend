@@ -13,18 +13,30 @@ import Banner from "../assets/componants/Banner";
 import Card from "../assets/componants/Card";
 import { useNavigate } from "react-router-dom";
 
-const Dashboard = () => {
-  const navigate = useNavigate();
+const MyCollections = () => {
 
+    const navigate = useNavigate();
   const dummyData = [
-    { title: "The Flash, Vol 1", author: "joshua Williamson", url: "images/01.png" },
-    { title: "Titans Vol 2", author: "Andrew Robinson", url: "images/02.png" },
-    { title: "Harly Quinn, Vol 1", author: "Jimmy Palmiotti", url: "images/03.png" },
+    {
+      title: "The Flash, Vol 1",
+      author: "joshua Williamson",
+      url: "images/01.png",
+    },
+    {
+      title: "Titans Vol 2",
+      author: "Andrew Robinson",
+      url: "images/02.png",
+    },
+    {
+      title: "Harly Quinn, Vol 1",
+      author: "Jimmy Palmiotti",
+      url: "images/03.png",
+    },
     { title: "Suicide Squad #8", author: "Tom Taylor", url: "images/04.png" },
   ];
   return (
-    <div className="dashboard-container d-flex flex-row">
-      <div className="left-section  d-flex  flex-column align-items-lg-center align-items-md-start mx-md-2 ">
+    <div className="my-collection-container dashboard-container d-flex flex-row">
+      <div className="left-section  d-flex  flex-column align-items-center ">
         <div className="brand d-flex flex-column align-items-end my-4 mb-5">
           <h2 className="fw-bolder">
             <span className="text-primary">Book</span>Let
@@ -33,20 +45,20 @@ const Dashboard = () => {
           <span className="fw-bolder fs-lg-6">by Datacode.</span>
         </div>
 
-        <div className="catelog d-flex flex-column">
-          <div
-            className="selected-category rounded-4"
-            onClick={() => navigate("/dashboard")}
-          >
-            <FaBox className="mx-3 my-lg-3 my-3" />
+        <div
+          className="catelog d-flex flex-column"
+          onClick={() => navigate("/dashboard")}
+        >
+          <div className="mb-2">
+            <FaBox className="mx-3 my-3" />
             Dashboard
           </div>
-          <div onClick={() => navigate("/mycollection")}>
-            <FaBookOpen className="m-3 my-lg-4 my-3" />
+          <div className="selected-category rounded-4">
+            <FaBookOpen className="m-3 my-3 " />
             My Collections
           </div>
-          <div>
-            <BsSaveFill className="mx-3 my-lg-3 my-3" />
+          <div className="my-2">
+            <BsSaveFill className="mx-3 my-3 " />
             Favourites
           </div>
         </div>
@@ -75,7 +87,7 @@ const Dashboard = () => {
           <div className="right d-flex flex-row w-25 justify-content-center">
             <div
               className="mx-3
-          "
+                  "
             >
               <IoNotifications size="1.5rem" className="my-2" />
             </div>
@@ -85,9 +97,21 @@ const Dashboard = () => {
           </div>
         </nav>
 
-        <div class="hero-section d-flex justify-content-evenly my-lg-3">
-          <div class="left banner ">
-            <Banner url="images/banner.png" />
+        <div class="hero-section d-flex justify-content-evenly my-3">
+          <div className="left">
+            <div className="heading">Completed Read</div>
+            <div className="d-flex flex-row overflow-auto hide-scrollbar">
+              {dummyData.map((item) => {
+                return (
+                  <Card
+                    key={item.index}
+                    title={item.title}
+                    author={item.author}
+                    url={item.url}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div class="right d-flex flex-column align-items-center ">
             <h4>Continue Reading</h4>
@@ -97,7 +121,7 @@ const Dashboard = () => {
 
         <div className="last-section d-flex flex-column align-items-start">
           <div className="heading">
-            <span>Top Rated Comics</span>
+            <span>Top Read</span>
           </div>
           <div className="comics d-flex flex-row justify-content-start flex-wrap">
             {dummyData.map((item) => {
@@ -106,7 +130,7 @@ const Dashboard = () => {
                   title={item.title}
                   author={item.author}
                   url={item.url}
-                  bold="bold"
+                  bold
                 />
               );
             })}
@@ -117,4 +141,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default MyCollections;

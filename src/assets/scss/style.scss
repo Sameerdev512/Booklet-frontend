@@ -1,241 +1,391 @@
 .login-container {
-    height: 100vh;
-    background: #282837;
+  height: 100vh;
+  background: #282837;
+
+  .left {
+    color: white;
+    gap: 2;
+
+    .heading {
+      font-size: 2rem;
+
+      @media (max-width: 992px) {
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    .brand {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .login-form {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .cu-input {
+        background-color: #282837;
+        border: 1px solid white;
+        width: 25vw;
+        color: white;
+
+        @media (max-width: 992px) {
+          width: 30vw;
+        }
+
+        @media (max-width: 768px) {
+          width: 40vw;
+        }
+      }
+
+      .cu-btn {
+        border-radius: 20px;
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+  }
+
+  .right {
+    background-image: url("images/s1.png");
+    object-fit: cover;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1080px) {
+      background-image: url("images/s.png");
+    }
+  }
+
+  //right container of sign-in page
+  .signin-right {
+    background-image: url("images/b.png");
+    object-fit: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+
+    @media (max-width: 1085px) {
+      background-image: url("images/b.png");
+    }
+  }
+}
+
+.dashboard-container {
+  min-width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #21212d;
+  color: white;
+
+  .left-section {
+    position: relative;
+    width: 20vw;
+    border-right: 1px solid rgba(255, 255, 255, 0.34);
+
+    .brand {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .catelog {
+      font-size: 1.1rem;
+      width: 18vw;
+    }
+
+    .selected-category {
+      background-color: #4a83f6;
+      width: 18vw;
+    }
+
+    .setting {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 50px;
+    
+    }
+
+    @media (max-width: 960px) {
+      width: 28vw;
+      font-size: 0.7rem;
+      align-items: start;
+      margin-left: 2vw;
+
+      .catelog {
+        font-size: 1rem;
+        width: 100%;
+      }
+
+      .selected-category {
+        width: 23vw;
+      }
+    }
+  }
+
+  .right-section {
+    align-items: center;
+    width: 80vw;
+    overflow: auto;
+
+    nav {
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      left: 20%;
+
+      .left {
+        width: 70%;
+
+        .cu-input {
+          width: 50vw;
+          position: relative;
+          left: 0%;
+          background-color: #282837;
+          border: 1px solid rgba(255, 255, 255, 0.648);
+          // width: 125%;
+          border-radius: 12px;
+          color: white;
+        }
+
+        .cu-input::placeholder {
+          color: white;
+          opacity: 0.5;
+        }
+      }
+
+      .right {
+        width: 10%;
+      }
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+
+      @media (max-width: 960px) {
+        width: 90%;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-section {
+      width: 90%;
+
+      .left {
+        width: 70%;
+      }
+
+      .right {
+        // width: 25%;
+        margin-left: 60px;
+
+        @media (max-width: 960px) {
+          margin-left: 0px;
+        }
+      }
+
+      h4 {
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+
+        @media(max-width: 960px)
+        {
+            font-size: 0.8rem !important;
+        }
+      }
+
+    }
+
+    .last-section {
+      width: 90%;
+      margin-top: 3vh;
+      padding-bottom: 5vh;
+      .heading {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        font-family: "Montserrat", sans-serif;
+
+        @media (max-width: 960px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+.banner-container {
+  width: 100%;
+  border-radius: 10px;
+  height: 60vh;
+  margin-bottom: 20px;
+  background-image: url("images/banner.png");
+  // object-fit:cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+
+  img {
+    width: 100%;
+    height: 60vh;
+    // overflow: inherit;
+  }
+
+  .details {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
 
     .left {
-        color: white;
-        gap: 2;
+      width: 60%;
+      font-family: "Montserrat", sans-serif;
 
-        .heading {
-            font-size: 2rem;
+      .title {
+        font-weight: 800;
+        font-size: 2rem;
 
-            @media(max-width:992px) {
-                font-size: 1.5rem;
-            }
+        @media (max-width: 960px) {
+          font-size: 1.5rem;
+        }
+      }
+    }
 
-            @media(max-width:768px) {
-                font-size: 1.5rem;
-            }
+    .right {
+      display: flex;
+      justify-content: end;
+      
 
-            @media(max-width:576px) {
-                font-size: 1.2rem;
+      .btn {
+        width: max-content;
+      }
+    }
+
+    @media(max-width: 960px)
+    {
+        width: 90%;
+    }
+  }
+
+  @media (max-width: 960px) {
+    height: 50vh;
+    margin-bottom: 0vh;
+  }
+}
+
+.card-container {
+  margin-right: 3vw;
+  margin-top: 2vw;
+  img {
+    width: 200px;
+    height: 220px;
+    border-radius: 10px;
+
+    @media (max-width: 960px) {
+      width: 170px;
+      height: 170px;
+    }
+  }
+
+  .title {
+    font-family: "Montserrat", sans-serif;
+    color: #4a83f6;
+    font-weight: bolder;
+    margin-top: 1vh;
+  }
+  @media (max-width: 960px) {
+    .card-container {
+      img {
+        width: 150px;
+      }
+    }
+  }
+}
+
+
+.my-collection-container{
+    .right-section{
+    .hero-section{
+        .left{
+                background:#282837;
+                padding: 0 20px;
+                border-radius: 10px;
+                height:55vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .hide-scrollbar::-webkit-scrollbar {
+                        display: none;
+                        /* Chrome, Safari, Opera */
+                    }
+
+                .heading{
+                    font-size: 1.5rem;
+                    font-family: "Montserrat",
+                        sans-serif;
+                        font-weight: bolder;
+
+                        @media(max-width: 960px)
+                        {
+                            font-size: 1.25 rem;
+                        }
+                }
+            @media(max-width: 960px)
+            {
+                width:40vw;
             }
         }
+    }
+}
+}
 
-        .brand {
-            font-family: "Montserrat", sans-serif;
-        }
-
-        .login-form {
-            width: 100%;
+.create-book-container{
+    background-color:#282837 ;
+    height:100vh;
+    color:white;  
+    
+    .login-form {
+            width: 30%;
             justify-content: center;
             align-items: center;
 
+            h2{
+                
+                    font-size: 1.5rem;
+                    letter-spacing:1px;
+                
+            }
+            .by{
+                font-size: 0.8rem;
+            }
+            .heading{
+                font-size: 1.5rem;
+                font-weight: 600;
+                font-family: "Montserrat",
+                    sans-serif;
+            }
             .cu-input {
                 background-color: #282837;
                 border: 1px solid white;
-                width: 25vw;
+                width: 22vw;
                 color: white;
-
-                @media(max-width:992px) {
+    
+                @media (max-width: 992px) {
                     width: 30vw;
                 }
-
-                @media(max-width:768px) {
+    
+                @media (max-width: 768px) {
                     width: 40vw;
                 }
             }
-
+    
             .cu-btn {
                 border-radius: 20px;
                 font-weight: 700;
                 font-family: "Montserrat", sans-serif;
             }
         }
-    }
-
-
-
-    .right {
-        background-image: url('images/s1.png');
-        object-fit: cover;
-        background-repeat: no-repeat;
-
-        @media(min-width:1080px) {
-            background-image: url('images/s.png');
-        }
-    }
-
-    //right container of sign-in page
-    .signin-right {
-        background-image: url('images/b.png');
-        object-fit: contain;
-        background-position: right;
-        background-repeat: no-repeat;
-
-        @media(max-width:1085px) {
-            background-image: url('images/b.png');
-        }
-    }
-
-
-}
-
-.dashboard-container {
-    width: 100%;
-    height: 100vh;
-    background-color: #21212d;
-    color: white;
-
-    .left-section {
-        width: 20vw;
-        border-right: 1px solid rgba(255, 255, 255, 0.34);
-
-        .brand {
-            font-family: "Montserrat", sans-serif;
-        }
-
-        .catelog {
-            font-size: 1.1rem;
-            width: 18vw;
-        }
-
-        .selected-category {
-            background-color: #4A83F6;
-            width: 18vw;
-        }
-
-        .setting {
-            position: absolute;
-            bottom: 0;
-            margin-bottom: 50px;
-        }
-
-        @media(max-width: 960px)
-        {
-            width: 25vw;
-        }
-    }
-
-    .right-section {
-        align-items: center;
-        width: 80vw;
-        overflow: auto;
-
-        nav {
-            width: 100%;
-            justify-content: space-evenly;
-            align-items: center;
-            left:20%;
-
-            .left {
-                width: 70%;
-
-                .cu-input {
-                    width:50vw;
-                    position: relative;
-                    left:0%;
-                    background-color: #282837;
-                    border: 1px solid white;
-                    // width: 125%;
-                    border-radius: 12px;
-                    color: white;
-                }
-
-                .cu-input::placeholder
-                {
-                    color: white;
-                    opacity: 0.5;
-                }
-
-            }
-
-            .right{
-                width:10%;
-            }
-
-            img {
-                width: 45px;
-                height: 45px;
-                border-radius: 50%;
-            }
-        }
-
-        .hero-section {
-            width: 90%;
-
-            .left{
-                width:70%;
-            }
-
-            .right{
-                width:20%;
-                margin-left:100px;
-            }
-        }
-
-        .last-section{
-            width:90%;
-            margin-top: 3vh;
-            padding-bottom:5vh;
-            .heading{
-                font-size: 1.5rem;
-                font-weight: bolder;
-                font-family: "Montserrat", sans-serif;;
-            }
-
-            
-        }
-    }
-
-
-}
-.banner-container {
-    width: 100%;
-    border-radius: 10px;
-    height: 60vh;
-    margin-bottom: 20px;
-    background-image: url('images/batman.png');
-    background-repeat: no-repeat;
-    background-position:top right;
-    object-fit:inherit;
-
-    .details {
-        width: 90%;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2vh;
-
-        .left {
-            width: 60%;
-            font-family: "Montserrat", sans-serif;
-
-            .title {
-                font-weight: 800;
-                font-size: 2rem;
-            }
-        }
-
-        .right {
-            display: flex;
-            justify-content: center;
-        }
-    }
-}
-
-.card-container{
-    margin-right: 3vw;
-    margin-top:2vw;
-    img{
-        width:200px;
-        height:220px;
-        border-radius: 10px;
-    }
-
-    .title{
-        font-family: "Montserrat", sans-serif;
-        color:#4A83F6;
-        font-weight: bolder;
-        margin-top:1vh;
-    }
 }

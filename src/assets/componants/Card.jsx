@@ -2,7 +2,7 @@ import React from 'react'
 import '../scss/style.scss'
 function Card({title,author,url}) {
   return (
-    <div className="d-flex flex-column w-auto  flex-wrap flex-shrink card-container rounded-3">
+    <div className=" col-auto card-container rounded-3 mb-0">
      
         <img src={url ? url : "images/01.png"}></img>
         <div className="title col">{title}</div>

@@ -1,76 +1,16 @@
-import React from "react";
 import "../assets/scss/style.scss";
-import { FaBox } from "react-icons/fa";
-import { FaBookOpen } from "react-icons/fa6";
-import { BsSaveFill } from "react-icons/bs";
-import { SlSettings } from "react-icons/sl";
-import { RiLogoutBoxRFill } from "react-icons/ri";
 import { IoNotifications } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
-
-import { CgProfile } from "react-icons/cg";
-import Banner from "../assets/componants/Banner";
 import Card from "../assets/componants/Card";
-import { useNavigate } from "react-router-dom";
+import Sidebar from "../assets/componants/Sidebar";
+import {comicDetails,completedComics,currentBook} from './constant/ConstantData'
+import ProgressCard from "../assets/componants/ProgressCard";
 
 const MyCollections = () => {
-
-    const navigate = useNavigate();
-  const dummyData = [
-    {
-      title: "The Flash, Vol 1",
-      author: "joshua Williamson",
-      url: "images/01.png",
-    },
-    {
-      title: "Titans Vol 2",
-      author: "Andrew Robinson",
-      url: "images/02.png",
-    },
-    {
-      title: "Harly Quinn, Vol 1",
-      author: "Jimmy Palmiotti",
-      url: "images/03.png",
-    },
-    { title: "Suicide Squad #8", author: "Tom Taylor", url: "images/04.png" },
-  ];
+  
   return (
     <div className="my-collection-container dashboard-container d-flex flex-row">
-      <div className="left-section  d-flex  flex-column align-items-center ">
-        <div className="brand d-flex flex-column align-items-end my-4 mb-5">
-          <h2 className="fw-bolder">
-            <span className="text-primary">Book</span>Let
-            <span className="text-primary">.</span>
-          </h2>
-          <span className="fw-bolder fs-lg-6">by Datacode.</span>
-        </div>
-
-        <div
-          className="catelog d-flex flex-column"
-          onClick={() => navigate("/dashboard")}
-        >
-          <div className="mb-2">
-            <FaBox className="mx-3 my-3" />
-            Dashboard
-          </div>
-          <div className="selected-category rounded-4">
-            <FaBookOpen className="m-3 my-3 " />
-            My Collections
-          </div>
-          <div className="my-2">
-            <BsSaveFill className="mx-3 my-3 " />
-            Favourites
-          </div>
-        </div>
-
-        <div className="setting catelog">
-          <div>
-            <SlSettings className="mx-3 my-3" /> Setting
-          </div>
-          <div>
-            <RiLogoutBoxRFill className="mx-3 my-3" /> LogOut
-          </div>
-        </div>
+      <div className="left-section">
+        <Sidebar page="my-collection" />
       </div>
 
       <div className="right-section d-flex flex-column ">
@@ -97,25 +37,25 @@ const MyCollections = () => {
           </div>
         </nav>
 
-        <div class="hero-section d-flex justify-content-evenly my-3">
-          <div className="left">
-            <div className="heading">Completed Read</div>
-            <div className="d-flex flex-row overflow-auto hide-scrollbar">
-              {dummyData.map((item) => {
-                return (
+        <div class="hero-section d-grid my-3">
+          <div className="row">
+            <div className="left col-8">
+              <div className="heading">Completed Read</div>
+              <div className="d-flex flex-row overflow-auto hide-scrollbar">
+                {completedComics.map((item) => (
                   <Card
                     key={item.index}
                     title={item.title}
                     author={item.author}
                     url={item.url}
                   />
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
-          <div class="right d-flex flex-column align-items-center ">
-            <h4>Continue Reading</h4>
-            <Card author="Kobra Kai: Ultimate" url="images/05.png" />{" "}
+
+            <div class="right col">
+              <ProgressCard title={currentBook.title} url={currentBook.url} heading="Continue Reading"/>
+            </div>
           </div>
         </div>
 
@@ -123,17 +63,17 @@ const MyCollections = () => {
           <div className="heading">
             <span>Top Read</span>
           </div>
-          <div className="comics d-flex flex-row justify-content-start flex-wrap">
-            {dummyData.map((item) => {
-              return (
+          <div className="d-grid ">
+            <div className="row">
+              {comicDetails.map((item) => (
                 <Card
                   title={item.title}
                   author={item.author}
                   url={item.url}
-                  bold
+                  bold="bold"
                 />
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>

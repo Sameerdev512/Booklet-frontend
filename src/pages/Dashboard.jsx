@@ -1,76 +1,28 @@
-import React from "react";
 import "../assets/scss/style.scss";
-import { FaBox } from "react-icons/fa";
-import { FaBookOpen } from "react-icons/fa6";
-import { BsSaveFill } from "react-icons/bs";
-import { SlSettings } from "react-icons/sl";
-import { RiLogoutBoxRFill } from "react-icons/ri";
 import { IoNotifications } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
-
-import { CgProfile } from "react-icons/cg";
 import Banner from "../assets/componants/Banner";
 import Card from "../assets/componants/Card";
-import { useNavigate } from "react-router-dom";
+import Sidebar from "../assets/componants/Sidebar";
+import {comicDetails,bannerDetails,currentBook} from './constant/ConstantData'
+import ProgressCard from "../assets/componants/ProgressCard";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
 
-  const dummyData = [
-    { title: "The Flash, Vol 1", author: "joshua Williamson", url: "images/01.png" },
-    { title: "Titans Vol 2", author: "Andrew Robinson", url: "images/02.png" },
-    { title: "Harly Quinn, Vol 1", author: "Jimmy Palmiotti", url: "images/03.png" },
-    { title: "Suicide Squad #8", author: "Tom Taylor", url: "images/04.png" },
-  ];
   return (
     <div className="dashboard-container d-flex flex-row">
-      <div className="left-section  d-flex  flex-column align-items-lg-center align-items-md-start mx-md-2 ">
-        <div className="brand d-flex flex-column align-items-end my-4 mb-5">
-          <h2 className="fw-bolder">
-            <span className="text-primary">Book</span>Let
-            <span className="text-primary">.</span>
-          </h2>
-          <span className="fw-bolder fs-lg-6">by Datacode.</span>
-        </div>
-
-        <div className="catelog d-flex flex-column">
-          <div
-            className="selected-category rounded-4"
-            onClick={() => navigate("/dashboard")}
-          >
-            <FaBox className="mx-3 my-lg-3 my-3" />
-            Dashboard
-          </div>
-          <div onClick={() => navigate("/mycollection")}>
-            <FaBookOpen className="m-3 my-lg-4 my-3" />
-            My Collections
-          </div>
-          <div>
-            <BsSaveFill className="mx-3 my-lg-3 my-3" />
-            Favourites
-          </div>
-        </div>
-
-        <div className="setting catelog">
-          <div>
-            <SlSettings className="mx-3 my-3" /> Setting
-          </div>
-          <div>
-            <RiLogoutBoxRFill className="mx-3 my-3" /> LogOut
-          </div>
-        </div>
+      <div className="left-section">
+        <Sidebar />
       </div>
 
       <div className="right-section d-flex flex-column ">
         <nav className="d-flex flex-row  my-4">
           <div className="left d-flex search-bar justify-content-center">
             <input
-              type=""
+              type="text"
               className="form-control cu-input p-2"
               placeholder="Search here..."
               color="white"
             />
-            {/* <FaSearch style={{position:"absolute",left:"61%",top:"6%"}}/> */}
           </div>
           <div className="right d-flex flex-row w-25 justify-content-center">
             <div
@@ -85,13 +37,17 @@ const Dashboard = () => {
           </div>
         </nav>
 
-        <div class="hero-section d-flex justify-content-evenly my-lg-3">
-          <div class="left banner ">
-            <Banner url="images/banner.png" />
-          </div>
-          <div class="right d-flex flex-column align-items-center ">
-            <h4>Continue Reading</h4>
-            <Card author="Kobra Kai: Ultimate" url="images/05.png" />{" "}
+        <div class="hero-section d-grid  my-lg-3">
+          <div className="row">
+            <div class="left banner col-8">
+              <Banner
+                title={bannerDetails.title}
+                author={bannerDetails.author}
+                url={bannerDetails.url}
+              />
+            </div>
+            <div class="right col">
+              <ProgressCard title={currentBook.title} url={currentBook.url} heading="Contiune Reading"/>
           </div>
         </div>
 
@@ -99,20 +55,21 @@ const Dashboard = () => {
           <div className="heading">
             <span>Top Rated Comics</span>
           </div>
-          <div className="comics d-flex flex-row justify-content-start flex-wrap">
-            {dummyData.map((item) => {
-              return (
+          <div className="d-grid ">
+            <div className="row">
+              {comicDetails.map((item) => (
                 <Card
                   title={item.title}
                   author={item.author}
                   url={item.url}
                   bold="bold"
                 />
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

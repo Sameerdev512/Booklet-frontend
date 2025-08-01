@@ -1,5 +1,4 @@
 import "../assets/scss/style.scss";
-import { IoNotifications } from "react-icons/io5";
 import Card from "../assets/componants/Card";
 import Sidebar from "../assets/componants/Sidebar";
 import { chapterProgress } from "./constant/ConstantData";
@@ -24,10 +23,10 @@ const BookPage = () => {
                   Batman : <br></br>The Knight King
                 </div>
                 <div className="details">
-                  A book description is a brief summary of a book's plot,
-                  characters, and themes. It helps readers get a sense of what
-                  the book is about. Book descriptions are often found on the
-                  back cover of the book, or on retailer websites. 
+                  A book description is a brief summary of a book's plot,
+                  characters, and themes. It helps readers get a sense of what
+                  the book is about. Book descriptions are often found on the
+                  back cover of the book, or on retailer websites.
                 </div>
               </div>
               <div class="right col-4  d-grid justify-content-center align-content-start">

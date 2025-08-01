@@ -4,22 +4,9 @@
 
   .left {
     color: white;
-    gap: 2;
 
     .heading {
       font-size: 2rem;
-
-      @media (max-width: 992px) {
-        font-size: 1.5rem;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 1.5rem;
-      }
-
-      @media (max-width: 576px) {
-        font-size: 1.2rem;
-      }
     }
 
     .brand {
@@ -27,23 +14,15 @@
     }
 
     .login-form {
-      width: 100%;
       justify-content: center;
       align-items: center;
 
       .cu-input {
         background-color: #282837;
         border: 1px solid white;
-        width: 25vw;
         color: white;
 
-        @media (max-width: 992px) {
-          width: 30vw;
-        }
-
-        @media (max-width: 768px) {
-          width: 40vw;
-        }
+        
       }
 
       .cu-btn {
@@ -56,12 +35,12 @@
 
   .right {
     background-image: url("images/s1.png");
-    object-fit: cover;
+    height:100vh;
+    object-fit: contain;
+    overflow:hidden ;
     background-repeat: no-repeat;
 
-    @media (min-width: 1080px) {
-      background-image: url("images/s.png");
-    }
+   
   }
 
   //right container of sign-in page
@@ -324,7 +303,6 @@
   color: white;
 
   .login-form {
-    width: 30%;
     justify-content: center;
     align-items: center;
 

@@ -14,8 +14,8 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/dashboard" element={<Dashboard/>}></Route>
-        {/* <Route path="/" element={<LoginPage/>}></Route> */}
-        <Route path="/" element={<BookPage/>}></Route>
+        <Route path="/" element={<LoginPage/>}></Route>
+        <Route path="/bookpage" element={<BookPage/>}></Route>
         <Route path="/createbook" element={<CreateBook/>}></Route>
         <Route path="/mycollection" element={<MyCollections/>}></Route>
         <Route path="/signin" element={<SignInPage/>}></Route>

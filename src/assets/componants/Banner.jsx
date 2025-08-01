@@ -7,9 +7,9 @@ const Banner = ({ title, author, url }) => {
       className="banner-container d-grid  rouded-4 "
       style={{ backgroundImage: { url } }}
     >
-      <div className="details d-grid  justify-content-center align-items-end">
-        <div className="row">
-          <div className="left col ">
+      <div className="details row  justify-content-center align-items-end">
+        <div className="row ">
+          <div className="left col-8 px-5">
             <div>
               <span>{author}</span>
             </div>
@@ -20,7 +20,7 @@ const Banner = ({ title, author, url }) => {
               </span>
             </div>
           </div>
-          <div className="right col align-items-center ">
+          <div className="right col-3 align-items-center ">
             <div>
               <button class="btn btn-primary rounded-5 fs-6 fw-bold  px-lg-4 py-lg-2 ">
                 Read Now{" "}

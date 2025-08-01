@@ -15,7 +15,7 @@ const Navbar = () => {
               color="white"
             />
           </div>
-          <div className="right col-4 d-flex jusify-content-center">
+          <div className="right col-4 d-flex justify-content-center">
             <div
               className="mx-3
           "

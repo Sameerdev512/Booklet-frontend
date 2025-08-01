@@ -12,7 +12,7 @@ const Sidebar = () => {
     const location = useLocation();
 
   return (
-    <div className="sidebar-container  d-grid justify-content-center align-content-between px-5">
+    <div className="sidebar-container  d-grid justify-content-center align-content-start px-5">
       <div className="brand row  my-4 mb-5">
         <h2 className="fw-bolder">
           <span className="text-primary">Book</span>Let
@@ -46,7 +46,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="row catelog mb-5">
+      <div className="row catelog mb-5 position-absolute bottom-0">
         <div>
           <SlSettings className="mx-3 my-3" /> Setting
         </div>

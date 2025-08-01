@@ -147,7 +147,7 @@
   }
 }
 
-.dashboard-container {
+.cu-container {
  height: 100vh;
   background-color: #21212d;
   color: white;
@@ -282,13 +282,14 @@
 
 
 .my-collection-container {
+  width:100%;
   .right-section {
     .hero-section {
       .left {
         background: #282837;
-        padding: 0 20px;
+        padding:20px;
         border-radius: 10px;
-        height: 55vh;
+        height: max-content;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -371,7 +372,7 @@
 .book-page-container {
   .right-section {
     .hero-section {
-      height: 40vh;
+      height: max-content;
       margin-bottom: 10vh;
 
       
@@ -394,7 +395,6 @@
       margin-top: 2vh;
       .chapter-progress-heading {
         margin-top: 2vh;
-        width:40%;
 
         .chapter-heading {
           font-size: 2rem;

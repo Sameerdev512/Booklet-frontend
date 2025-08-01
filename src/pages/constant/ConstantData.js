@@ -48,7 +48,7 @@ export const completedComics = [
     title: "Suicide Squad #8",
     author: "Tom Taylor",
     url: "images/04.png"
-  }
+  },
 ];
 
 export const bannerDetails = {

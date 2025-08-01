@@ -2,14 +2,17 @@ import "../assets/scss/style.scss";
 import Banner from "../assets/componants/Banner";
 import Card from "../assets/componants/Card";
 import Sidebar from "../assets/componants/Sidebar";
-import {comicDetails,bannerDetails,currentBook} from './constant/ConstantData'
+import {
+  comicDetails,
+  bannerDetails,
+  currentBook,
+} from "./constant/ConstantData";
 import ProgressCard from "../assets/componants/ProgressCard";
 import Navbar from "../assets/componants/Navbar";
 
 const Dashboard = () => {
-
   return (
-    <div className="dashboard-container d-grid ">
+    <div className="cu-container d-grid ">
       <div className="row">
         <div className="col-3 left-section ">
           <Sidebar />
@@ -18,7 +21,7 @@ const Dashboard = () => {
         <div className="col-9 right-section mx-0 ">
           <Navbar />
 
-          <div class="hero-section d-grid  justify-content-center my-lg-3">
+          <div class="hero-section d-grid justify-content-center my-lg-3">
             <div className="row ">
               <div class="left col-8">
                 <Banner
@@ -28,7 +31,6 @@ const Dashboard = () => {
                 />
               </div>
               <div class="right col-4 d-grid justify-content-center align-content-start ">
-                
                 <ProgressCard
                   title={currentBook.title}
                   url={currentBook.url}

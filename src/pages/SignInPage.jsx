@@ -12,20 +12,23 @@ const SignInPage = () => {
       console.log(details)
     }
     return (
-      <div className="login-container d-grid align-content-center align-items-center ">
+      <div className="login-container d-grid  ">
         <div className="row ">
-          <div className="left col-6 m-auto d-flex flex-column align-items-center">
-            <div className="login-form col-6">
-              <div className="brand row">
-                <h2 className="fw-bolder">
-                  <span className="text-primary">Book</span>Let
-                  <span className="text-primary">.</span>
-                </h2>
-                <span className="fw-bolder fs-lg-6">by Datacode.</span>
-              </div>
-              <div className="heading row my-4 ">Sign In To Get Inside</div>
-              <div className="row ">
-                <form className="">
+          <div className="left col-6 d-grid align-items-center">
+            <div className="row justify-content-center">
+              <div className="login-form col-6">
+                <div className="brand text-center">
+                  <h2 className="fw-bolder">
+                    <span className="text-primary">Book</span>Let
+                    <span className="text-primary">.</span>
+                  </h2>
+                  <span className="fw-bolder fs-lg-6">by Datacode.</span>
+                </div>
+                <div className="heading my-4 text-center">
+                  Sign In To Get Inside
+                </div>
+
+                <form>
                   <div class="form-group ">
                     <label for="exampleInputEmail1">Email </label>
                     <input
@@ -46,14 +49,14 @@ const SignInPage = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <button className="btn btn-primary cu-btn my-2 px-4">
+                  <button className="row btn btn-primary cu-btn my-2 px-4 m-auto">
                     Sign In
                   </button>
                 </form>
               </div>
             </div>
           </div>
-          <div className="signin-right right col-6"></div>
+          <div className="right col-6"></div>
         </div>
       </div>
     );

@@ -13,19 +13,21 @@ const CreateBook = () => {
           console.log(details)
         }
   return (
-    <div className="create-book-container d-flex justify-content-center w-100 align-items-center">
-      <div className="login-form m-auto d-flex flex-column  border border-primary py-5 px-4 rounded-4">
-        <div className="brand d-flex flex-column align-items-end">
+    <div className="create-book-container d-grid align-content-center justify-content-center">
+      <div className="login-form row d-flex flex-column">
+        <div className="brand row justify-content-center">
           <h2 className="fw-bolder">
             <span className="text-primary">Book</span>Let
             <span className="text-primary">.</span>
           </h2>
           <span className="fw-bolder by">by Datacode.</span>
         </div>
-        <div className="heading my-4">Create a Book</div>
-        <div>
-          <form className="d-flex flex-column justifu-content-center">
-            <div class="form-group">
+        <div className="heading row my-4 justify-content-center">
+          Create a Book
+        </div>
+        <div className="row">
+          <form>
+            <div class="form-group my-4">
               <label for="exampleInputTitle">Book Title </label>
               <input
                 type="text"
@@ -55,9 +57,11 @@ const CreateBook = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className="btn btn-primary cu-btn px-4 m-auto my-2">
-              Create Book
-            </button>
+            <div className="row justify-content-center">
+              <button className="btn btn-primary cu-btn px-4  my-2 ">
+                Create Book
+              </button>
+            </div>
           </form>
         </div>
       </div>

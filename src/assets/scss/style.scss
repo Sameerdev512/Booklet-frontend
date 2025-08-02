@@ -1,13 +1,8 @@
 .login-container {
-  height: 100vh;
   background: #282837;
 
   .left {
     color: white;
-
-    .heading {
-      font-size: 2rem;
-    }
 
     .brand {
       font-family: "Montserrat", sans-serif;
@@ -36,9 +31,7 @@
   .right {
     background-image: url("images/s1.png");
     height:100vh;
-    object-fit: contain;
-    overflow:hidden ;
-    background-repeat: no-repeat;
+    object-fit: cover;
 
    
   }
@@ -50,9 +43,6 @@
     background-position: right;
     background-repeat: no-repeat;
 
-    @media (max-width: 1085px) {
-      background-image: url("images/b.png");
-    }
   }
 }
 

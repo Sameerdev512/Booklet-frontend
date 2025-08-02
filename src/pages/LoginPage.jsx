@@ -11,19 +11,19 @@ const LoginPage = () => {
     console.log(details)
   }
   return (
-    <div className="login-container d-grid  ">
-      <div className="row ">
-        <div className="left col-6 d-grid align-items-center">
-          <div className="row justify-content-center">
-            <div className="login-form col-6">
+    <div className="login-container d-grid " >
+      <div className="row mx-0 ">
+        <div className="left col-md-6 my-md-0 my-5 d-grid align-items-center" >
+          <div className=" mx-0 row justify-content-center">
+            <div className="login-form col-md-6 col-10">
               <div className="brand text-center">
-                <h2 className="fw-bolder">
+                <h2 className="fw-bolder fs-2">
                   <span className="text-primary">Book</span>Let
                   <span className="text-primary">.</span>
                 </h2>
-                <span className="fw-bolder fs-lg-6">by Datacode.</span>
+                <span className="fw-bolder fs-md-6">by Datacode.</span>
               </div>
-              <div className="heading my-4 text-center">Login In To Get Inside</div>
+              <div className="heading my-4 text-center fs-2">Login In To Get Inside</div>
             
                 <form >
                   <div class="form-group ">
@@ -53,10 +53,11 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-        <div className="right col-6"></div>
+        <div className="right col-md-6 col-12"></div>
       </div>
     </div>
   );
+  
 };
 
 export default LoginPage;

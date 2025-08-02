@@ -13,9 +13,9 @@ const LoginPage = () => {
   return (
     <div className="login-container d-grid " >
       <div className="row mx-0 ">
-        <div className="left col-md-6 my-md-0 my-5 d-grid align-items-center" >
+        <div className="left col-sm-6 my-md-0 my-5 d-grid align-items-center" >
           <div className=" mx-0 row justify-content-center">
-            <div className="login-form col-md-6 col-10">
+            <div className="login-form col-sm-6 col-10">
               <div className="brand text-center">
                 <h2 className="fw-bolder fs-2">
                   <span className="text-primary">Book</span>Let

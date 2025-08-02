@@ -12,25 +12,25 @@ import Navbar from "../assets/componants/Navbar";
 
 const Dashboard = () => {
   return (
-    <div className="cu-container d-grid ">
-      <div className="row">
-        <div className="col-3 left-section ">
+    <div className="cu-container ">
+      <div className="row mx-0 ">
+        <div className="col-12  col-md-3 left-section d-md-block d-none">
           <Sidebar />
         </div>
 
-        <div className="col-9 right-section mx-0 ">
+        <div className="col-12 col-md-9 px-0  right-section mx-0 ">
           <Navbar />
 
-          <div class="hero-section d-grid justify-content-center my-lg-3">
-            <div className="row ">
-              <div class="left col-8">
+          <div className="hero-section my-sm-3">
+            <div className="row mx-0">
+              <div className="left col-md-8 col-12">
                 <Banner
                   title={bannerDetails.title}
                   author={bannerDetails.author}
                   url={bannerDetails.url}
                 />
               </div>
-              <div class="right col-4 d-grid justify-content-center align-content-start ">
+              <div className="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 py-md-4">
                 <ProgressCard
                   title={currentBook.title}
                   url={currentBook.url}
@@ -39,12 +39,14 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="last-section d-flex flex-column align-items-start">
-              <div className="heading">
-                <span>Top Rated Comics</span>
+            <div className="last-section d-grid">
+              <div className="heading row mx-0">
+                <span className=" text-center text-sm-start mb-3">
+                  Top Rated Comics
+                </span>
               </div>
-              <div className="d-grid ">
-                <div className="row">
+              <div className="row mx-0 d-grid ">
+                <div className="row mx-0 row-gap-4 justify-content-sm-start justify-content-center">
                   {comicDetails.map((item) => (
                     <Card
                       title={item.title}

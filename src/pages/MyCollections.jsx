@@ -1,13 +1,20 @@
+import { useEffect } from "react";
 import "../assets/scss/style.scss";
-import { IoNotifications } from "react-icons/io5";
-import Card from "../assets/componants/Card";
-import Sidebar from "../assets/componants/Sidebar";
-import {comicDetails,completedComics,currentBook} from './constant/ConstantData'
-import ProgressCard from "../assets/componants/ProgressCard";
-import Navbar from "../assets/componants/Navbar";
+import Card from "../componants/Card";
+import Sidebar from "../componants/Sidebar";
+import {
+  comicDetails,
+  completedComics,
+  currentBook,
+} from "./constant/ConstantData";
+import ProgressCard from "../componants/ProgressCard";
+import Navbar from "../componants/Navbar";
 
 const MyCollections = () => {
-  
+  useEffect(() => {
+    document.title = "My Collection - Booklet"; // set the page title
+  }, []);
+
   return (
     <div className="my-collection-container cu-container">
       <div className="row mx-0">
@@ -18,19 +25,19 @@ const MyCollections = () => {
         <div className="col-12 col-md-9  right-section mx-0 ">
           <Navbar />
 
-          <div class="hero-section my-sm-3">
-            <div className="row mx-0">
-              <div className="left col-md-8 col-12 mb-4 mb-md-0">
-                <div className="heading mb-2 my-mb-md-0">Completed Read</div>
+          <div class="hero-section my-md-3 ">
+            <div className="row mx-0 ">
+              <div className="left col-md-8 col-12 mb-4 mb-md-0 rounded-3">
+                <div className="heading fs-4 fw-bolder mb-2 my-mb-md-0">Completed Read</div>
                 <div className="d-flex flex-row hide-scrollbar overflow-auto ">
-                    {completedComics.map((item) => (
-                      <Card
-                        key={item.index}
-                        title={item.title}
-                        author={item.author}
-                        url={item.url}
-                      />
-                    ))}
+                  {completedComics.map((item) => (
+                    <Card
+                      key={item.index}
+                      title={item.title}
+                      author={item.author}
+                      url={item.url}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -45,8 +52,8 @@ const MyCollections = () => {
           </div>
 
           <div className="last-section d-grid">
-            <div className="heading row mx-0">
-              <span className="text-center text-sm-start mb-3">Top Read</span>
+            <div className="heading fs-4 fw-bolder row mx-0">
+              <span className="text-center text-sm-start my-3">Top Read</span>
             </div>
             <div className="d-grid ">
               <div className="row">

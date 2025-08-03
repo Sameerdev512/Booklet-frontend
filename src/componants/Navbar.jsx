@@ -1,8 +1,7 @@
 import React from "react";
-import "../scss/style.scss";
+import "../assets/scss/style.scss";
 import { IoNotifications } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
-
 
 const Navbar = () => {
   return (
@@ -14,10 +13,10 @@ const Navbar = () => {
               <div className="col-1 d-hidden d-md-none text-center">
                 <RxHamburgerMenu />
               </div>
-              <div className="col">
+              <div className="col ">
                 <input
                   type="text"
-                  className="form-control cu-input p-2"
+                  className="form-control cu-input p-2 rounded-3"
                   placeholder="Search here..."
                   color="white"
                 />
@@ -32,7 +31,7 @@ const Navbar = () => {
               <IoNotifications size="1.5rem" className="my-2" />
             </div>
             <div>
-              <img src="images/profile.png"></img>
+              <img src="src/assets/images/profile.png"></img>
             </div>
           </div>
         </div>

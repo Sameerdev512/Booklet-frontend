@@ -1,16 +1,23 @@
+import { useEffect } from "react";
 import "../assets/scss/style.scss";
-import Banner from "../assets/componants/Banner";
-import Card from "../assets/componants/Card";
-import Sidebar from "../assets/componants/Sidebar";
+import Banner from "../componants/Banner";
+import Card from "../componants/Card";
+import Sidebar from "../componants/Sidebar";
+import ProgressCard from "../componants/ProgressCard";
+import Navbar from "../componants/Navbar";
 import {
   comicDetails,
   bannerDetails,
   currentBook,
 } from "./constant/ConstantData";
-import ProgressCard from "../assets/componants/ProgressCard";
-import Navbar from "../assets/componants/Navbar";
+
 
 const Dashboard = () => {
+
+  useEffect(() => {
+    document.title = "Dashboard - Booklet"; // set the page title
+  }, []);
+
   return (
     <div className="cu-container ">
       <div className="row mx-0 ">
@@ -18,7 +25,7 @@ const Dashboard = () => {
           <Sidebar />
         </div>
 
-        <div className="col-12 col-md-9  right-section mx-0 ">
+        <div className="right-section col-md-9 col-12 px-3">
           <Navbar />
 
           <div className="hero-section my-sm-3">
@@ -40,7 +47,7 @@ const Dashboard = () => {
             </div>
 
             <div className="last-section d-grid">
-              <div className="heading row mx-0">
+              <div className="heading fs-4 fw-bolder row mx-0">
                 <span className=" text-center text-sm-start mb-3">
                   Top Rated Comics
                 </span>

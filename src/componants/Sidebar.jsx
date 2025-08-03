@@ -1,5 +1,5 @@
-import React from 'react'
-import '../scss/style.scss'
+import React from "react";
+import "../assets/scss/style.scss";
 import { FaBox } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa6";
 import { BsSaveFill } from "react-icons/bs";
@@ -8,8 +8,8 @@ import { RiLogoutBoxRFill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="sidebar-container  d-grid justify-content-center align-content-start px-5">
@@ -34,7 +34,9 @@ const Sidebar = () => {
         <div
           onClick={() => navigate("/mycollection")}
           className={`rounded-4 fs-6 ${
-            location.pathname == "/mycollection" ||location.pathname =="/" ? "selected-category" : ""
+            location.pathname == "/mycollection" || location.pathname == "/"
+              ? "selected-category"
+              : ""
           }`}
         >
           <FaBookOpen className="m-3 my-lg-3 my-3" />
@@ -56,6 +58,6 @@ const Sidebar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;

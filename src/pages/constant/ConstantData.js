@@ -2,32 +2,32 @@ export const comicDetails = [
   {
     title: "The Flash, Vol 1",
     author: "joshua Williamson",
-    url: "images/01.png",
+    url: "src/assets/images/01.png",
   },
   {
     title: "The Flash, Vol 1",
     author: "joshua Williamson",
-    url: "images/01.png",
+    url: "src/assets/images/01.png",
   },
   {
     title: "The Flash, Vol 1",
     author: "joshua Williamson",
-    url: "images/01.png",
+    url: "src/assets/images/01.png",
   },
   {
     title: "Titans Vol 2",
     author: "Andrew Robinson",
-    url: "images/02.png"
+    url: "src/assets/images/02.png"
   },
   {
     title: "Harly Quinn, Vol 1",
     author: "Jimmy Palmiotti",
-    url: "images/03.png",
+    url: "src/assets/images/03.png",
   },
   { 
     title: "Suicide Squad #8", 
     author: "Tom Taylor", 
-    url: "images/04.png" 
+    url: "src/assets/images/04.png" 
   }
 ];
 
@@ -36,30 +36,30 @@ export const completedComics = [
   {
     title: "The Flash, Vol 1",
     author: "joshua Williamson",
-    url: "images/01.png",
+    url: "src/assets/images/01.png",
   },
   
   {
     title: "Harly Quinn, Vol 1",
     author: "Jimmy Palmiotti",
-    url: "images/03.png",
+    url: "src/assets/images/03.png",
   },
   {
     title: "Suicide Squad #8",
     author: "Tom Taylor",
-    url: "images/04.png"
+    url: "src/assets/images/04.png"
   },
   {
     title: "The Flash, Vol 1",
     author: "joshua Williamson",
-    url: "images/01.png",
+    url: "src/assets/images/01.png",
   },
 ];
 
 export const bannerDetails = {
   title:"Batman: The Dark Knight",
   author:"Frank Miler",
-  url:"images/banner.png"
+  url:"src/assets/images/banner.png"
 }
 
 export const chapterProgress = [
@@ -88,5 +88,5 @@ export const chapterProgress = [
 
 export const currentBook ={
   title:"Kobra Kai: Ultimate",
-  url:"images/05.png",
+  url:"src/assets/images/05.png",
 }

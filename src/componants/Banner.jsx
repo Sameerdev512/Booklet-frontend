@@ -1,10 +1,10 @@
 import React from "react";
-import "../scss/style.scss";
+import "../assets/scss/style.scss";
 
 const Banner = ({ title, author, url }) => {
   return (
     <div
-      className="banner-container rouded-4 "
+      className="banner-container rounded-2"
       style={{ backgroundImage: { url } }}
     >
       <div className="details d-grid h-100">

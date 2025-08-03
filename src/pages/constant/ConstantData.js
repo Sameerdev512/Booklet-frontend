@@ -49,6 +49,11 @@ export const completedComics = [
     author: "Tom Taylor",
     url: "images/04.png"
   },
+  {
+    title: "The Flash, Vol 1",
+    author: "joshua Williamson",
+    url: "images/01.png",
+  },
 ];
 
 export const bannerDetails = {

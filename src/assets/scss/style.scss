@@ -177,6 +177,7 @@
 
 .card-container {
 
+  margin-right:20px;
   img {
     width: 200px;
     height: 220px;
@@ -209,10 +210,7 @@
         background: #282837;
         padding:20px;
         border-radius: 10px;
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        height:50vh;
 
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
@@ -230,9 +228,6 @@
           }
         }
 
-        @media(max-width: 960px) {
-          width: 40vw;
-        }
       }
     }
   }

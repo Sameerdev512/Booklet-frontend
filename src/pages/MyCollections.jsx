@@ -9,21 +9,20 @@ import Navbar from "../assets/componants/Navbar";
 const MyCollections = () => {
   
   return (
-    <div className="my-collection-container cu-container d-grid">
-      <div className="row">
-        <div className="left-section col-3">
+    <div className="my-collection-container cu-container">
+      <div className="row mx-0">
+        <div className="col-12  col-md-3 left-section d-md-block d-none">
           <Sidebar page="my-collection" />
         </div>
 
-        <div className="right-section col-9 mx-0">
+        <div className="col-12 col-md-9  right-section mx-0 ">
           <Navbar />
 
-          <div class="hero-section d-grid my-3 align-content-start">
-            <div className="row">
-              <div className="left col-8">
-                <div className="heading">Completed Read</div>
-                <div className="d-grid hide-scrollbar overflow-auto">
-                  <div className="row py-2">
+          <div class="hero-section my-sm-3">
+            <div className="row mx-0">
+              <div className="left col-md-8 col-12 mb-4 mb-md-0">
+                <div className="heading mb-2 my-mb-md-0">Completed Read</div>
+                <div className="d-flex flex-row hide-scrollbar overflow-auto ">
                     {completedComics.map((item) => (
                       <Card
                         key={item.index}
@@ -32,11 +31,10 @@ const MyCollections = () => {
                         url={item.url}
                       />
                     ))}
-                  </div>
                 </div>
               </div>
 
-              <div class="right col-4 d-grid justify-content-center align-content-start">
+              <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 py-md-4">
                 <ProgressCard
                   title={currentBook.title}
                   url={currentBook.url}
@@ -46,9 +44,9 @@ const MyCollections = () => {
             </div>
           </div>
 
-          <div className="last-section d-flex flex-column align-items-start">
-            <div className="heading">
-              <span>Top Read</span>
+          <div className="last-section d-grid">
+            <div className="heading row mx-0">
+              <span className="text-center text-sm-start mb-3">Top Read</span>
             </div>
             <div className="d-grid ">
               <div className="row">

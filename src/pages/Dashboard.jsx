@@ -18,7 +18,7 @@ const Dashboard = () => {
           <Sidebar />
         </div>
 
-        <div className="col-12 col-md-9 px-0  right-section mx-0 ">
+        <div className="col-12 col-md-9  right-section mx-0 ">
           <Navbar />
 
           <div className="hero-section my-sm-3">
@@ -45,8 +45,8 @@ const Dashboard = () => {
                   Top Rated Comics
                 </span>
               </div>
-              <div className="row mx-0 d-grid ">
-                <div className="row mx-0 row-gap-4 justify-content-sm-start justify-content-center">
+              <div className="d-grid ">
+                <div className="row">
                   {comicDetails.map((item) => (
                     <Card
                       title={item.title}

@@ -42,7 +42,7 @@ const MyCollections = () => {
               </div>
             </div>
 
-            <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 py-md-4">
+            <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 ">
               <ProgressCard
                 title={currentBook.title}
                 url={currentBook.url}

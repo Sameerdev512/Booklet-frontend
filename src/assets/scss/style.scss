@@ -94,7 +94,6 @@
     }
 
     .last-section {
-
       .heading {
         font-family: "Montserrat", sans-serif;
       }
@@ -117,18 +116,8 @@
 
       .title {
         font-size: 2rem;
-
-        @media(max-width:570px) {
-          font-size: 1rem;
-        }
       }
     }
-
-
-  }
-
-  @media(max-width: 576px) {
-    height: 30vh;
   }
 }
 
@@ -222,6 +211,18 @@
   }
 }
 
+@media(min-width:768px) and (max-width:992px) {
+  .banner-container {
+    height: 40vh;
+    .details {
+        .left {
+          .title {
+            font-size: 1.25rem;
+          }
+        }
+      }
+  }
+}
 
 @media(min-width:200px) and (max-width:768px) {
   .card-container {
@@ -239,13 +240,25 @@
     }
   }
 
-  .details {
-    .right {
-      .btn {
-        @media(max-width:576px) {
-          font-size: 0.6rem;
+  .banner-container {
+    height: 35vh;
+
+    .details {
+      .left {
+        .title {
+          font-size: 1rem;
+        }
+      }
+
+      .right {
+        .btn {
+          @media(max-width:576px) {
+            font-size: 0.6rem;
+          }
         }
       }
     }
+
+
   }
 }

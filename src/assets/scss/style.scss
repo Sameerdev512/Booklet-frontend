@@ -27,13 +27,20 @@
   .right {
     background-image: url("src/assets/images/s1.png");
     height: 100vh;
-    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media(max-width:570px)
+    {
+      height:50vh;
+    }
   }
 
   //right container of sign-in page
   .signin-right {
     background-image: url("src/assets/images/b.png");
     background-position: right;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 }
@@ -107,13 +114,37 @@
   margin-bottom: 20px;
   background-image: url("src/assets/images/banner.png");
   background-position: top right;
+  background-size: cover;
 
   .details {
     margin-bottom: 2vh;
 
     .left {
       font-family: "Montserrat", sans-serif;
+
+      .title{
+        font-size: 2rem;
+        @media(max-width:570px)
+        {
+          font-size: 1rem;
+        }
+      }
     }
+
+    .right{
+      .btn{
+        @media(max-width:576px) {
+          
+          width:80px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 576px)
+  {
+    height:40vh;
   }
 }
 
@@ -123,6 +154,12 @@
   img {
     width: 200px;
     height: 220px;
+
+    @media(max-width:576px)
+    {
+      width: 280px;
+        height: 250px;
+    }
   }
 
   .title {
@@ -205,6 +242,18 @@
           font-family: "Montserrat", sans-serif;
         }
       }
+    }
+  }
+}
+
+
+@media(min-width:200px) and (max-width:768px)
+{
+  .login-container{
+    font-size: 1rem;
+
+    .left{
+      height: 50vh;
     }
   }
 }

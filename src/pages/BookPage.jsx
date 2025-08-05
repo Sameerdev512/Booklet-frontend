@@ -17,7 +17,7 @@ const BookPage = () => {
           <Navbar />
 
           <div class="hero-section my-md-3 my-0">
-            <div className="row mx-0">
+            <div className="row">
               <div className="left col-md-8 col-12">
                 <div className="heading fs-1 fw-bolder">
                   Batman : <br></br>The Knight King
@@ -55,13 +55,13 @@ const BookPage = () => {
               {chapterProgress.map((chapter, index) => (
                 <div
                   key={index}
-                  className="chapter-card d-flex justify-content-between row"
+                  className="chapter-card d-flex justify-content-between row mb-2 my-md-0"
                   style={{ textAlign: "start" }}
                 >
-                  <h6 className="col-2">{chapter.chapterNo}</h6>
-                  <p className="col-4">{chapter.title}</p>
-                  <p className="col-2">{chapter.completedDate}</p>
-                  <p className="col">{chapter.progress}</p>
+                  <h6 className="col-3">{chapter.chapterNo}</h6>
+                  <p className="col-3">{chapter.title}</p>
+                  <p className="col-3">{chapter.completedDate}</p>
+                  <p className="col-3">{chapter.progress}</p>
                 </div>
               ))}
             </div>

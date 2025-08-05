@@ -5,14 +5,15 @@ import Card from "../componants/Card";
 import Sidebar from "../componants/Sidebar";
 import ProgressCard from "../componants/ProgressCard";
 import Navbar from "../componants/Navbar";
+import { useSelector } from "react-redux";
 import {
-  comicDetails,
   bannerDetails,
   currentBook,
-} from "./constant/ConstantData";
+} from "./constant/ConstantData"; //removed the comicDetails
 
 
 const Dashboard = () => {
+  const books = useSelector((state) => state.books.list);
 
   useEffect(() => {
     document.title = "Dashboard - Booklet"; // set the page title
@@ -53,8 +54,8 @@ const Dashboard = () => {
                 </span>
               </div>
               <div className="d-grid ">
-                <div className="row">
-                  {comicDetails.map((item) => (
+                <div className="row justify-content-center justify-content-md-start">
+                  {books.map((item) => (
                     <Card
                       title={item.title}
                       author={item.author}

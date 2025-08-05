@@ -25,7 +25,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className="right col-4 d-flex justify-content-center">
+          <div className="right col-4 d-flex justify-content-md-center justify-content-end">
             <div className="mx-3">
               <IoNotifications size="1.5rem" className="my-2" />
             </div>

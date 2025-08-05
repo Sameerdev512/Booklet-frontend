@@ -12,8 +12,8 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className="sidebar-container  d-grid justify-content-center align-content-start px-5">
-      <div className="brand row  my-4 mb-5">
+    <div className="sidebar-container justify-content-center align-content-start px-xl-5 px-2">
+      <div className="brand my-4 mb-5">
         <h2 className="fw-bolder">
           <span className="text-primary">Book</span>Let
           <span className="text-primary">.</span>
@@ -21,9 +21,9 @@ const Sidebar = () => {
         <span className="fw-bolder fs-lg-6">by Datacode.</span>
       </div>
 
-      <div className="row catelog">
+      <div className="catelog">
         <div
-          className={`rounded-4 m-auto ${
+          className={`rounded-4 ${
             location.pathname == "/dashboard" ? "selected-category" : ""
           }`}
           onClick={() => navigate("/dashboard")}
@@ -48,7 +48,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="row catelog mb-5 position-absolute bottom-0">
+      <div className="catelog mb-5 position-absolute bottom-0">
         <div>
           <SlSettings className="mx-3 my-3" /> Setting
         </div>

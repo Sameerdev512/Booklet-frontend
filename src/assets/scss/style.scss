@@ -30,9 +30,8 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    @media(max-width:570px)
-    {
-      height:50vh;
+    @media(max-width:570px) {
+      height: 50vh;
     }
   }
 
@@ -82,11 +81,6 @@
 .cu-container {
   height: 100vh;
   background-color: #21212d;
-  // color: white;
-
-  // .left-section {
-  //   height: fit-content;
-  // }
 
   .right-section {
     height: 100vh;
@@ -100,7 +94,6 @@
     }
 
     .last-section {
-      margin-top: 3vh;
 
       .heading {
         font-family: "Montserrat", sans-serif;
@@ -122,44 +115,27 @@
     .left {
       font-family: "Montserrat", sans-serif;
 
-      .title{
+      .title {
         font-size: 2rem;
-        @media(max-width:570px)
-        {
+
+        @media(max-width:570px) {
           font-size: 1rem;
         }
       }
     }
 
-    .right{
-      .btn{
-        @media(max-width:576px) {
-          
-          width:80px;
-          font-size: 0.5rem;
-        }
-      }
-    }
+
   }
 
-  @media(max-width: 576px)
-  {
-    height:40vh;
+  @media(max-width: 576px) {
+    height: 30vh;
   }
 }
 
 .card-container {
-  margin-right: 20px;
-
   img {
     width: 200px;
     height: 220px;
-
-    @media(max-width:576px)
-    {
-      width: 280px;
-        height: 250px;
-    }
   }
 
   .title {
@@ -247,13 +223,29 @@
 }
 
 
-@media(min-width:200px) and (max-width:768px)
-{
-  .login-container{
+@media(min-width:200px) and (max-width:768px) {
+  .card-container {
+    img {
+      width: 200px;
+      height: 250px;
+    }
+  }
+
+  .login-container {
     font-size: 1rem;
 
-    .left{
+    .left {
       height: 50vh;
+    }
+  }
+
+  .details {
+    .right {
+      .btn {
+        @media(max-width:576px) {
+          font-size: 0.6rem;
+        }
+      }
     }
   }
 }

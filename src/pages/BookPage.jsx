@@ -7,9 +7,9 @@ import Navbar from "../componants/Navbar";
 const BookPage = () => {
 
   return (
-    <div className="book-page-container cu-container d-grid">
+    <div className="book-page-container cu-container">
       <div className="row mx-0">
-        <div className="col-12  col-md-3 left-section d-md-block d-none">
+        <div className="col-12 col-md-3 left-section d-md-block d-none">
           <Sidebar />
         </div>
 
@@ -29,8 +29,8 @@ const BookPage = () => {
                   back cover of the book, or on retailer websites.
                 </div>
               </div>
-              <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-md-0 py-4">
-                <h4>Book Progress</h4>
+              <div class="right col-sm-4 col-12 justify-content-md-center justify-content-start align-content-start py-md-0 py-4">
+                <h4 className="fs-4 fw-bold">Book Progress</h4>
                 <Card
                   author="Kobra Kai: Ultimate"
                   url="src/assets/images/05.png"
@@ -39,8 +39,8 @@ const BookPage = () => {
             </div>
           </div>
 
-          <div className="last-section d-grid">
-            <div className="heading fs-4 fw-bolder row">
+          <div className="last-section">
+            <div className="heading fs-4 fw-bolder">
               <span className="fs-4">Reading Plan</span>
             </div>
             <div className="chapter-progress-heading row">
@@ -51,17 +51,17 @@ const BookPage = () => {
                 Days: <span style={{ color: "#4A83F6" }}>20</span>
               </div>
             </div>
-            <div className="row my-4">
+            <div className="my-4 row mx-0 d-flex overflow-auto">
               {chapterProgress.map((chapter, index) => (
                 <div
                   key={index}
-                  className="chapter-card d-flex justify-content-between row mb-2 my-md-0"
+                  className="chapter-card d-flex justify-content-between mb-2 my-md-0"
                   style={{ textAlign: "start" }}
                 >
-                  <h6 className="col-3">{chapter.chapterNo}</h6>
-                  <p className="col-3">{chapter.title}</p>
-                  <p className="col-3">{chapter.completedDate}</p>
-                  <p className="col-3">{chapter.progress}</p>
+                  <h6 className="col-4">{chapter.chapterNo}</h6>
+                  <p className="col-4">{chapter.title}</p>
+                  <p className="col-4">{chapter.completedDate}</p>
+                  <p className="col-4">{chapter.progress}</p>
                 </div>
               ))}
             </div>

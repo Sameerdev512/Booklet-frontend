@@ -2,85 +2,76 @@ import { useEffect } from "react";
 import "../assets/scss/style.scss";
 import Card from "../componants/Card";
 import Sidebar from "../componants/Sidebar";
-import {
-  completedComics,
-  currentBook,
-} from "./constant/ConstantData";
 import ProgressCard from "../componants/ProgressCard";
 import Navbar from "../componants/Navbar";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { completedComics, currentBook } from "./constant/ConstantData";
 
 const MyCollections = () => {
   const navigate = useNavigate();
-  const books = useSelector((state)=>state.books.list);
+  const books = useSelector((state) => state.books.list);
 
   useEffect(() => {
     document.title = "My Collection - Booklet"; // set the page title
   }, []);
 
   return (
-    <div className="my-collection-container cu-container">
-      <div className="row mx-0">
-        <div className="col-12  col-md-3 left-section d-md-block d-none">
-          <Sidebar page="my-collection" />
-        </div>
+    <div className="row mx-0 my-collection-container cu-container">
+      <div className="col-12  col-md-3 left-section d-md-block d-none">
+        <Sidebar page="my-collection" />
+      </div>
 
-        <div className="col-12 col-md-9  right-section mx-0 ">
-          <Navbar />
+      <div className="col-12 col-md-9 right-section">
+        <Navbar />
 
-          <div class="hero-section my-md-3 ">
-            <div className="row mx-0 ">
-              <div className="left col-md-8 col-12 mb-4 mb-md-0 rounded-3">
-                <div className="heading fs-4 fw-bolder mb-2 my-mb-md-0">
-                  Completed Read
-                </div>
-                <div className="d-flex flex-row hide-scrollbar overflow-auto ">
-                  {completedComics.map((item) => (
-                    <Card
-                      key={item.index}
-                      title={item.title}
-                      author={item.author}
-                      url={item.url}
-                    />
-                  ))}
-                </div>
+        <div class="row mx-0 hero-section my-md-3 ">
+            <div className="left col-md-8 col-12 mb-4 mb-md-0 rounded-3">
+              <div className="heading fs-4 fw-bolder mb-2">
+                Completed Read
               </div>
-
-              <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 py-md-4">
-                <ProgressCard
-                  title={currentBook.title}
-                  url={currentBook.url}
-                  heading="Continue Reading"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="last-section d-grid">
-            <div className="heading fs-4 fw-bolder row mx-0">
-              <span className="text-center text-sm-start mb-3">Top Read</span>
-            </div>
-            <div className="d-grid ">
-              <div className="row justify-content-center justify-content-md-start">
-                {books.map((item) => (
+              <div className="d-flex flex-row hide-scrollbar overflow-auto gap-3">
+                {completedComics.map((item) => (
                   <Card
+                    key={item.index}
                     title={item.title}
                     author={item.author}
                     url={item.url}
-                    bold="bold"
                   />
                 ))}
               </div>
             </div>
 
-            <button
-              className="bg-primary mb-5 w-25 rounded-4"
-              onClick={() => navigate("/addbook")}
-            >
-              Add Book
-            </button>
+            <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 py-md-4">
+              <ProgressCard
+                title={currentBook.title}
+                url={currentBook.url}
+                heading="Continue Reading"
+              />
+            </div>
+        </div>
+
+        <div className="last-section">
+          <div className="heading fs-4 fw-bolder row mx-0">
+            <span className="text-center text-sm-start mb-3">Top Read</span>
           </div>
+            <div className="row mx-0 justify-content-center justify-content-md-start">
+              {books.map((item) => (
+                <Card
+                  title={item.title}
+                  author={item.author}
+                  url={item.url}
+                  bold="bold"
+                />
+              ))}
+          </div>
+
+          <button
+            className="bg-primary mb-5 w-25 rounded-4"
+            onClick={() => navigate("/addbook")}
+          >
+            Add Book
+          </button>
         </div>
       </div>
     </div>

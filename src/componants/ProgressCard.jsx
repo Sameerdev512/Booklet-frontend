@@ -4,7 +4,7 @@ import Card from "./Card";
 const ProgressCard = ({ title, url, heading }) => {
   return (
     <div>
-      <h4 className="fs-5 fw-bolder py-2  ">{heading}</h4>
+      <h4 className="fs-5 fw-bolder py-0">{heading}</h4>
       <div>
         <Card title={title} url={url} />
       </div>

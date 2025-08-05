@@ -22,11 +22,7 @@ const Dashboard = () => {
       </div>
 
       <div className="right-section col-md-9 col-12 ">
-        <div className="row mx-0">
-          <div className="col-12">
-            <Navbar />
-          </div>
-        </div>
+        <Navbar />
         <div className="row mx-0 hero-section">
           <div className="left col-md-8 col-12">
             <Banner

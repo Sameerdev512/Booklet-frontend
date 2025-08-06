@@ -1,4 +1,3 @@
-import React from "react";
 import "../assets/scss/style.scss";
 
 const Banner = ({ title, author, url }) => {
@@ -15,14 +14,14 @@ const Banner = ({ title, author, url }) => {
           </div>
           <div>
             <span className="fw-bolder title">
-              {title.split(":")[0]}:<br></br>
-              {title.split(":")[1]}
+              {title?.split(":")[0]}:<br></br>
+              {title?.split(":")[1]}
             </span>
           </div>
         </div>
         <div className="col-5 d-flex align-items-center justify-content-center right">
           <div>
-            <button class="btn btn-primary rounded-5 fw-bold px-md-4 py-md-2">
+            <button className="btn btn-primary rounded-5 fw-bold px-md-4 py-md-2">
               Read Now
             </button>
           </div>

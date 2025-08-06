@@ -141,7 +141,6 @@ $highlight-font:#4a83f6;
     .hero-section {
       .left {
         background: $primary-background;
-        padding: 10px 20px;
         height: 51vh;
 
         .hide-scrollbar::-webkit-scrollbar {
@@ -185,7 +184,6 @@ $highlight-font:#4a83f6;
 
       .heading {
         font-family: $font-stack;
-        margin-bottom: 3vh;
         line-height: 1.25;
       }
     }
@@ -201,6 +199,13 @@ $highlight-font:#4a83f6;
         }
       }
     }
+  }
+}
+
+.progress-container{
+  .progress-bar{
+    top:8vh;
+    left:10%;
   }
 }
 

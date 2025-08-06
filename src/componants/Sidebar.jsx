@@ -1,4 +1,3 @@
-import React from "react";
 import "../assets/scss/style.scss";
 import { FaBox } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa6";
@@ -18,9 +17,8 @@ const Sidebar = () => {
           <span className="text-primary">Book</span>Let
           <span className="text-primary">.</span>
         </h2>
-        <span className="fw-bolder fs-lg-6">by Datacode.</span>
+        <span className="fw-bolder fs-6">by Datacode.</span>
       </div>
-
       <div className="catelog">
         <div
           className={`rounded-4 ${
@@ -39,18 +37,17 @@ const Sidebar = () => {
               : ""
           }`}
         >
-          <FaBookOpen className="m-3 my-lg-3 my-3" />
+          <FaBookOpen className="m-3 my-lg-3" />
           My Collections
         </div>
         <div className="rounded-4 fs-6 ">
-          <BsSaveFill className="mx-3 my-lg-3 my-3" />
+          <BsSaveFill className="m-3 my-lg-3" />
           Favourites
         </div>
       </div>
-
       <div className="mb-5 position-absolute bottom-0 catelog">
         <div>
-          <SlSettings className="mx-3 my-3" /> Setting
+          <SlSettings className="m-3" /> Setting
         </div>
         <div>
           <RiLogoutBoxRFill className="mx-3" /> LogOut

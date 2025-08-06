@@ -1,22 +1,21 @@
-import React, { useState } from "react";
 import "../assets/scss/style.scss";
 import { IoNotifications } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
+import Sidebar from "./Sidebar";
 
 const Navbar = () => {
-  const [name, setName] = useState("none");
 
   return (
     <div>
       <nav className="my-md-4 my-3 navbar-container">
         <div className="row mx-0">
           <div className="col-8 my-auto left">
-            <div className="d-hidden d-md-none icon">
-              <span onClick={() => setName("block")}>
+            <div className="d-md-none d-hidden icon">
+              <span>
                 <RxHamburgerMenu />
               </span>
             </div>
-            <div className="d-none d-md-block">
+            <div className="d-md-block d-none">
               <input
                 type="text"
                 className="form-control p-2 rounded-3 cu-input"
@@ -36,7 +35,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <nav className={`d-${name}`}>hello</nav>
+      {/* mobile responsive side Navbar*/}
+      {/* <nav className="d-md-hidden d-block col-8"><Sidebar/></nav> */}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 
 const SignInPage = () => {
@@ -23,7 +22,7 @@ const SignInPage = () => {
 
   return (
     <div className="row mx-0 d-flex align-items-center justify-content-md-between login-container">
-      <div className="col-10 col-md-3 my-md-0 my-md-4 py-3 mx-auto left">
+      <div className="col-10 col-md-3 my-md-4 py-3 mx-auto left">
         <div className="w-md-50 w-100 mx-auto d-flex flex-column login-form">
           <div className="text-center brand">
             <h2 className="fw-bolder fs-2">

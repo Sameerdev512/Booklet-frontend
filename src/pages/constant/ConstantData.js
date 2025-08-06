@@ -1,4 +1,4 @@
-export const comicDetails = [
+export const ComicDetails = [
   {
     id: 1,
     title: "The Flash, Vol 1",
@@ -43,7 +43,7 @@ export const comicDetails = [
   }
 ];
 
-export const completedComics = [
+export const CompletedComics = [
   {
     id:1,
     title: "The Flash, Vol 1",
@@ -78,7 +78,7 @@ export const bannerDetails = {
   url: "src/assets/images/banner.png"
 }
 
-export const chapterProgress = [
+export const ChapterProgress = [
   {
     id:1,
     chapterNo: 'Chapter1',
@@ -112,6 +112,8 @@ export const chapterProgress = [
 //which is being continued
 export const currentBook = {
   id:1,
+  progress:36,
   title: "Kobra Kai: Ultimate",
+  description:"A batman description is a brief summary of a book's plot,characters, and themes.It helps readers get a sense of whatthe book is about.Book descriptions are often found on theback cover of the book, or on retailer websites.",
   url: "src/assets/images/05.png",
 }

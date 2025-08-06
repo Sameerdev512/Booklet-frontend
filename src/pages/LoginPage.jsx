@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../assets/scss/style.scss";
 const LoginPage = () => {
   const [loginDetails, setLoginDetails] = useState({
@@ -21,8 +21,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="row mx-0 d-flex align-items-center justify-content-md-between login-container">
-      <div className="col-10 col-md-3 my-md-0 my-md-4 py-3 mx-auto left">
+    <div className="row mx-0 d-flex justify-content-md-between align-items-center login-container">
+      <div className="col-md-3 col-10 my-md-4 py-3 mx-auto left">
         <div className="w-md-50 w-100 mx-auto d-flex flex-column login-form">
           <div className="text-center brand">
             <h2 className="fw-bolder fs-2">
@@ -40,7 +40,7 @@ const LoginPage = () => {
               <input
                 type="email"
                 name="email"
-                class="form-control cu-input mb-md-4 mb-2"
+                class="form-control mb-md-4 mb-2 cu-input"
                 placeholder="Enter email"
                 onChange={handleChange}
               />
@@ -50,7 +50,7 @@ const LoginPage = () => {
               <input
                 type="password"
                 name="password"
-                class="form-control cu-input mb-md-4 mb-2"
+                class="form-control mb-md-4 mb-2 cu-input"
                 placeholder="Password"
                 onChange={handleChange}
               />

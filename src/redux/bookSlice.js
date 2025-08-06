@@ -5,25 +5,33 @@ const bookSlice = createSlice({
     name: "books",
     initialState: {
         list: [{
+            id:1,
             title: "The Flash, Vol 1",
+            description: "A Flash vol 1 description is a brief summary of a book's plot,characters, and themes.It helps readers get a sense of whatthe book is about.Book descriptions are often found on theback cover of the book, or on retailer websites.",
             author: "joshua Williamson",
             url: "src/assets/images/01.png",
         },
-            {
-                title: "Titans Vol 2",
-                author: "Andrew Robinson",
-                url: "src/assets/images/02.png"
-            },
-            {
-                title: "Harly Quinn, Vol 1",
-                author: "Jimmy Palmiotti",
-                url: "src/assets/images/03.png",
-            },
-            {
-                title: "Suicide Squad #8",
-                author: "Tom Taylor",
-                url: "src/assets/images/04.png"
-            }],
+        {
+            id:2,
+            title: "Titans Vol 2",
+            description: "A flash vol 2 description is a brief summary of a book's plot,characters, and themes.It helps readers get a sense of whatthe book is about.Book descriptions are often found on theback cover of the book, or on retailer websites.",
+            author: "Andrew Robinson",
+            url: "src/assets/images/02.png"
+        },
+        {
+            id:3,
+            title: "Harly Quinn, Vol 1",
+            description: "A Harly Quinn description is a brief summary of a book's plot,characters, and themes.It helps readers get a sense of whatthe book is about.Book descriptions are often found on theback cover of the book, or on retailer websites.",
+            author: "Jimmy Palmiotti",
+            url: "src/assets/images/03.png",
+        },
+        {
+            id:4,
+            title: "Suicide Squad #8",
+            description: "A suicide description is a brief summary of a book's plot,characters, and themes.It helps readers get a sense of whatthe book is about.Book descriptions are often found on theback cover of the book, or on retailer websites.",
+            author: "Tom Taylor",
+            url: "src/assets/images/04.png"
+        }],
     },
     reducers: {
         addBook: (state, action) => {

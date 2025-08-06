@@ -8,10 +8,10 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar-container my-md-4 my-3">
+      <nav className="my-md-4 my-3 navbar-container">
         <div className="row mx-0">
-          <div className="left col-8 my-auto">
-            <div className="icon d-hidden d-md-none ">
+          <div className="col-8 my-auto left">
+            <div className="d-hidden d-md-none icon">
               <span onClick={() => setName("block")}>
                 <RxHamburgerMenu />
               </span>
@@ -19,13 +19,13 @@ const Navbar = () => {
             <div className="d-none d-md-block">
               <input
                 type="text"
-                className="form-control cu-input p-2 rounded-3"
+                className="form-control p-2 rounded-3 cu-input"
                 placeholder="Search here..."
                 color="white"
               />
             </div>
           </div>
-          <div className="right col-4 d-flex justify-content-md-center justify-content-end">
+          <div className="col-4 d-flex justify-content-md-center justify-content-end right">
             <div className="mx-3">
               <IoNotifications size="1.5rem" className="my-2" />
             </div>

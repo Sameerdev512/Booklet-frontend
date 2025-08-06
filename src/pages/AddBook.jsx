@@ -39,9 +39,9 @@ const AddBook = () => {
   };
 
   return (
-    <div className="row mx-0 d-flex justify-content-center align-items-center create-book-container ">
+    <div className="row mx-0 d-flex justify-content-center align-items-center create-book-container">
       <div className="col-12 col-md-4 login-form">
-        <div className="brand text-center">
+        <div className="text-center brand">
           <h2 className="fs-1 fw-bolder">
             <span className="text-primary">Book</span>Let
             <span className="text-primary">.</span>
@@ -60,7 +60,7 @@ const AddBook = () => {
                   type="text"
                   name="title"
                   value={bookDetails.title}
-                  className="form-control cu-input mb-3 p-2"
+                  className="form-control mb-3 p-2 cu-input"
                   placeholder="Enter title"
                   onChange={handleChange}
                 />
@@ -71,7 +71,7 @@ const AddBook = () => {
                   type="text"
                   name="author"
                   value={bookDetails.author}
-                  className="form-control cu-input mb-4 p-2"
+                  className="form-control mb-4 p-2 cu-input"
                   placeholder="Author"
                   onChange={handleChange}
                 />
@@ -82,7 +82,7 @@ const AddBook = () => {
                   type="text"
                   name="pages"
                   value={bookDetails.pages}
-                  className="form-control cu-input mb-4 p-2"
+                  className="form-control mb-4 p-2 cu-input"
                   placeholder="Pages"
                   onChange={handleChange}
                 />
@@ -90,7 +90,7 @@ const AddBook = () => {
               <div className="col text-center">
                 <button
                   type="submit"
-                  className="btn btn-primary cu-btn px-4  my-2 fw-bold rounded-5"
+                  className="btn btn-primary cu-btn px-4 my-2 fw-bold rounded-5"
                 >
                   Create Book
                 </button>

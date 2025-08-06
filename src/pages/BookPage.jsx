@@ -3,47 +3,50 @@ import Card from "../componants/Card";
 import Sidebar from "../componants/Sidebar";
 import { chapterProgress } from "./constant/ConstantData";
 import Navbar from "../componants/Navbar";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BookPage = () => {
+  const location = useLocation();
+  const {id} = location.state ||0;
 
+  const comics = useSelector((state)=>state.books.list)
+  const book = comics.find((item)=>item.id == id);
+  console.log(book)
+  
   return (
-    <div className="book-page-container cu-container">
+    <div className="cu-container book-page-container">
       <div className="row mx-0">
-        <div className="col-12 col-md-3 left-section d-md-block d-none">
+        <div className="col-12 col-md-3 d-md-block d-none left-section">
           <Sidebar />
         </div>
 
-        <div className="right-section col-md-9 col-12 px-3">
+        <div className="col-md-9 col-12 px-3 right-section">
           <Navbar />
 
-          <div class="hero-section my-md-3 my-0">
+          <div class="my-md-3 my-0 hero-section">
             <div className="row">
-              <div className="left col-md-8 col-12">
-                <div className="heading fs-1 fw-bolder">
-                  Batman : <br></br>The Knight King
+              <div className="col-md-8 col-12 left">
+                <div className="fs-1 fw-bolder heading">
+                  {book.title.split(":")[0]}: <br></br>{book.title.split(":")[1]}
                 </div>
-                <div className="details fs-6">
-                  A book description is a brief summary of a book's plot,
-                  characters, and themes. It helps readers get a sense of what
-                  the book is about. Book descriptions are often found on the
-                  back cover of the book, or on retailer websites.
-                </div>
+                <div className="fs-6 details">{book.description}</div>
               </div>
-              <div class="right col-sm-4 col-12 justify-content-md-center justify-content-start align-content-start py-md-0 py-4">
+              <div class="col-sm-4 col-12 justify-content-md-center justify-content-start align-content-start py-md-0 py-4 right">
                 <h4 className="fs-4 fw-bold">Book Progress</h4>
                 <Card
                   author="Kobra Kai: Ultimate"
                   url="src/assets/images/05.png"
-                />{" "}
+                />
               </div>
             </div>
           </div>
 
           <div className="last-section">
-            <div className="heading fs-4 fw-bolder">
+            <div className="fs-4 fw-bolder heading">
               <span className="fs-4">Reading Plan</span>
             </div>
-            <div className="chapter-progress-heading row">
+            <div className="row chapter-progress-heading">
               <div className="col-6 col-md-5 fs-3 fw-bolder">
                 Chapters: <span style={{ color: "#4A83F6" }}>20</span>
               </div>
@@ -55,13 +58,13 @@ const BookPage = () => {
               {chapterProgress.map((chapter, index) => (
                 <div
                   key={index}
-                  className="chapter-card d-flex justify-content-between mb-2 my-md-0"
+                  className="d-flex justify-content-between mb-2 my-md-0 chapter-card"
                   style={{ textAlign: "start" }}
                 >
-                  <h6 className="col-4">{chapter.chapterNo}</h6>
-                  <p className="col-4">{chapter.title}</p>
-                  <p className="col-4">{chapter.completedDate}</p>
-                  <p className="col-4">{chapter.progress}</p>
+                  <h6 className="col-3 col-md-2">{chapter.chapterNo}</h6>
+                  <p className="col-6 col-md-4">{chapter.title}</p>
+                  <p className="col-3 col-md-3">{chapter.completedDate}</p>
+                  <p className="col-3">{chapter.progress}</p>
                 </div>
               ))}
             </div>

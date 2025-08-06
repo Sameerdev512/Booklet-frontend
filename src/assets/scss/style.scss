@@ -1,25 +1,30 @@
+$primary-background: #282837;
+$highlight-background: #4a83f6;
+$font-stack: "Montserrat", sans-serif;
+$white: white;
+$highlight-font:#4a83f6;
+
 * {
-  color: white;
-  // background-color:#282837 ;
+  color: $white;
 }
 
 .login-container {
-  background-color: #282837;
+  background-color: $primary-background;
 
   .left {
     .brand {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-stack;
     }
 
     .login-form {
       .cu-input {
         background-color: transparent;
-        border: 1px solid white;
-        color: white;
+        border: 1px solid $white;
+        color: $white;
       }
 
       .cu-btn {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-stack;
       }
     }
   }
@@ -29,10 +34,6 @@
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-
-    @media(max-width:570px) {
-      height: 50vh;
-    }
   }
 
   //right container of sign-in page
@@ -49,11 +50,11 @@
     .cu-input {
       background-color: transparent;
       border: 1px solid rgba(255, 255, 255, 0.648);
-      color: white;
+      color: $white;
     }
 
     .cu-input::placeholder {
-      color: white;
+      color: $white;
       opacity: 0.5;
     }
   }
@@ -70,32 +71,32 @@
   border-right: 1px solid rgba(255, 255, 255, 0.34);
 
   .brand {
-    font-family: "Montserrat", sans-serif;
+    font-family: $font-stack;
   }
 
   .selected-category {
-    background-color: #4a83f6;
+    background-color: $highlight-background;
   }
 }
 
 .cu-container {
   height: 100vh;
-  background-color: #21212d;
+  background-color: $primary-background;
 
   .right-section {
     height: 100vh;
     overflow-y: auto;
-    background-color: #21212d;
+    background-color: $primary-background;
 
     .hero-section {
       h4 {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-stack;
       }
     }
 
     .last-section {
       .heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-stack;
       }
     }
   }
@@ -112,7 +113,7 @@
     margin-bottom: 2vh;
 
     .left {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-stack;
 
       .title {
         font-size: 2rem;
@@ -128,18 +129,10 @@
   }
 
   .title {
-    font-family: "Montserrat", sans-serif;
-    color: #4a83f6;
+    font-family: $font-stack;
+    color: $highlight-font;
     font-weight: bolder;
     margin-top: 1vh;
-  }
-
-  @media (max-width: 960px) {
-    .card-container {
-      img {
-        width: 150px;
-      }
-    }
   }
 }
 
@@ -147,7 +140,7 @@
   .right-section {
     .hero-section {
       .left {
-        background: #282837;
+        background: $primary-background;
         padding: 10px 20px;
         height: 51vh;
 
@@ -156,7 +149,7 @@
         }
 
         .heading {
-          font-family: "Montserrat", sans-serif;
+          font-family: $font-stack;
         }
       }
     }
@@ -164,23 +157,23 @@
 }
 
 .create-book-container {
-  background-color: #282837;
+  background-color: $primary-background;
   height: 100vh;
-  color: white;
+  color: $white;
 
   .login-form {
     .heading {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-stack;
     }
 
     .cu-input {
-      background-color: #282837;
-      border: 1px solid white;
-      color: white;
+      background-color: $primary-background;
+      border: 1px solid $white;
+      color: $white;
     }
 
     .cu-btn {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-stack;
     }
   }
 }
@@ -191,7 +184,7 @@
       height: max-content;
 
       .heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-stack;
         margin-bottom: 3vh;
         line-height: 1.25;
       }
@@ -204,7 +197,7 @@
         margin-top: 2vh;
 
         .chapter-heading {
-          font-family: "Montserrat", sans-serif;
+          font-family: $font-stack;
         }
       }
     }
@@ -214,13 +207,20 @@
 @media(min-width:768px) and (max-width:992px) {
   .banner-container {
     height: 40vh;
+
     .details {
-        .left {
-          .title {
-            font-size: 1.25rem;
-          }
+      .left {
+        .title {
+          font-size: 1.25rem;
         }
       }
+    }
+  }
+
+  .card-container {
+    img {
+      width: 150px;
+    }
   }
 }
 
@@ -237,6 +237,10 @@
 
     .left {
       height: 50vh;
+    }
+
+    .right{
+      height:50vh;
     }
   }
 
@@ -258,7 +262,5 @@
         }
       }
     }
-
-
   }
 }

@@ -16,22 +16,22 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="cu-container row mx-0">
-      <div className="col-12 col-md-3 left-section d-md-block d-none">
+    <div className="row mx-0 cu-container">
+      <div className="col-12 col-md-3 d-md-block d-none left-section">
         <Sidebar />
       </div>
 
-      <div className="right-section col-md-9 col-12 ">
+      <div className="col-md-9 col-12 right-section">
         <Navbar />
         <div className="row mx-0 hero-section">
-          <div className="left col-md-8 col-12">
+          <div className="col-md-8 col-12 left">
             <Banner
               title={bannerDetails.title}
               author={bannerDetails.author}
               url={bannerDetails.url}
             />
           </div>
-          <div className="right col-md-4 col-12 d-flex justify-content-md-center justify-content-start">
+          <div className="col-md-4 col-12 d-flex justify-content-md-center justify-content-start right">
             <ProgressCard
               title={currentBook.title}
               url={currentBook.url}
@@ -40,8 +40,8 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="last-section mt-0 mt-md-3">
-          <div className="row mx-0 heading fs-4 fw-bolder col-12">
+        <div className="mt-0 mt-md-3 last-section">
+          <div className="row mx-0 fs-4 fw-bolder col-12 heading">
             <span className="col-12 text-center text-md-start mb-3">
               Top Rated Comics
             </span>
@@ -49,6 +49,7 @@ const Dashboard = () => {
           <div className="row mx-0 justify-content-center justify-content-md-start">
             {books.map((item) => (
               <Card
+              id={item.id}
                 title={item.title}
                 author={item.author}
                 url={item.url}

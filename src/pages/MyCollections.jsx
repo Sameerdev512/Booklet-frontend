@@ -18,52 +18,51 @@ const MyCollections = () => {
 
   return (
     <div className="row mx-0 my-collection-container cu-container">
-      <div className="col-12  col-md-3 left-section d-md-block d-none">
+      <div className="col-12  col-md-3 d-md-block d-none left-section">
         <Sidebar page="my-collection" />
       </div>
 
       <div className="col-12 col-md-9 right-section">
         <Navbar />
 
-        <div class="row mx-0 hero-section my-md-3 ">
-            <div className="left col-md-8 col-12 mb-4 mb-md-0 rounded-3">
-              <div className="heading fs-4 fw-bolder mb-2">
-                Completed Read
-              </div>
-              <div className="d-flex flex-row hide-scrollbar overflow-auto gap-3">
-                {completedComics.map((item) => (
-                  <Card
-                    key={item.index}
-                    title={item.title}
-                    author={item.author}
-                    url={item.url}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div class="right col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 ">
-              <ProgressCard
-                title={currentBook.title}
-                url={currentBook.url}
-                heading="Continue Reading"
-              />
-            </div>
-        </div>
-
-        <div className="last-section">
-          <div className="heading fs-4 fw-bolder row mx-0">
-            <span className="text-center text-sm-start mb-3">Top Read</span>
-          </div>
-            <div className="row mx-0 justify-content-center justify-content-md-start">
-              {books.map((item) => (
+        <div class="row mx-0 my-md-3 hero-section">
+          <div className="col-md-8 col-12 mb-4 mb-md-0 rounded-3 left">
+            <div className="fs-4 fw-bolder mb-2 heading">Completed Read</div>
+            <div className="d-flex flex-row overflow-auto gap-3 hide-scrollbar">
+              {completedComics.map((item) => (
                 <Card
+                id={item.id}
+                  key={item.index}
                   title={item.title}
                   author={item.author}
                   url={item.url}
-                  bold="bold"
                 />
               ))}
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-12 d-grid justify-content-md-center justify-content-start align-content-start py-sm-0 right">
+            <ProgressCard
+              title={currentBook.title}
+              url={currentBook.url}
+              heading="Continue Reading"
+            />
+          </div>
+        </div>
+
+        <div className="last-section">
+          <div className="fs-4 fw-bolder row mx-0 heading">
+            <span className="text-center text-sm-start mb-3">Top Read</span>
+          </div>
+          <div className="row mx-0 justify-content-center justify-content-md-start">
+            {books.map((item) => (
+              <Card
+                title={item.title}
+                author={item.author}
+                url={item.url}
+                bold="bold"
+              />
+            ))}
           </div>
 
           <button

@@ -1,19 +1,41 @@
 import "../assets/scss/style.scss";
 import Sidebar from "../componants/Sidebar";
-import { ChapterProgress } from "./constant/ConstantData";
-import { currentBook } from "./constant/ConstantData";
 import Navbar from "../componants/Navbar";
-import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProgressCard from "../componants/ProgressCard";
+import { useParams } from "react-router-dom";
+import { addChapter } from "../redux/bookSlice";
 
 const BookPage = () => {
-  const location = useLocation();
-  const { id } = location.state || 0;
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  const [displayModal,setDisplayModal] = useState("none")
+  const [chapterDetails,setChapterDetails]=useState({
+    chapterNo:0,
+    title:"",
+    endDate:"",
+    status:"pending"
+  })
 
-  const Comics = useSelector((state) => state.books.list);
-  const book = Comics.find((item) => item.id == id);
-  console.log(book);
+  const handleChange = (e) =>{
+    const {name,value} = e.target;
+    setChapterDetails({...chapterDetails,[name]:value})
+    console.table(chapterDetails)
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    dispatch(addChapter({
+      bookId:book.id,
+      chapter:chapterDetails
+    }))
+    console.log(chapterDetails)
+  }
+
+  const Books = useSelector((state) => state.books.list);
+  const book = Books.find((item) => item.id == id);
+  // console.log(book);
 
   return (
     <div className="cu-container book-page-container">
@@ -34,10 +56,10 @@ const BookPage = () => {
               </div>
               <div className="col-sm-4 col-12 d-flex justify-content-md-center justify-content-start align-content-start py-md-0 py-4 right">
                 <ProgressCard
-                  id={currentBook?.id}
-                  percentage={currentBook.progress}
-                  title={currentBook?.title}
-                  url={currentBook?.url}
+                  id={book?.id}
+                  percentage={book?.progress}
+                  title={book?.title}
+                  url={book?.url}
                   heading="Contiune Reading"
                 />
               </div>
@@ -46,6 +68,74 @@ const BookPage = () => {
           <div className="last-section">
             <div className="fs-4 fw-bolder heading">
               <span className="fs-4">Reading Plan</span>
+              <button
+                className="btn bg-success text-white mx-2"
+                onClick={() => setDisplayModal("block")}
+              >
+                Add Chapter
+              </button>
+            </div>
+
+            {/* Model */}
+            <div
+              className={`d-${displayModal} modal-overlay border border-2 p-4 rounded-4 w-50 position-absolute bg-dark`}
+              style={{ top: "10vh", right: "15vw" }}
+            >
+              <div className="modal-box w-75 mx-auto">
+                <div className="d-flex flex-row justify-content-between">
+                  <h3 className="text-center">Add New Chapter</h3>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setDisplayModal("none")}
+                  >
+                    Close
+                  </button>
+                </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="chapterNo">Chapter No.</label>
+                    <input
+                      type="number"
+                      name="chapterNo"
+                      className="form-control mb-md-4 mb-2 cu-input"
+                      placeholder="Chapter No"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="chapterTitle">Chapter Title </label>
+                    <input
+                      type="text"
+                      name="title"
+                      className="form-control mb-md-4 mb-2 cu-input"
+                      placeholder="Chapter Title"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="chapterEndDate">Chapter EndDate</label>
+                    <input
+                      type="text"
+                      name="endDate"
+                      className="form-control mb-md-4 mb-3 cu-input"
+                      placeholder="e.g. 10/12/2027"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="modal-actions">
+                    <button type="submit" className="btn btn-success mx-2">
+                      Save Chapter
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => setDisplayModal("none")}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
             <div className="row chapter-progress-heading">
               <div className="col-md-5 col-6 fs-3 fw-bolder">
@@ -56,17 +146,19 @@ const BookPage = () => {
               </div>
             </div>
             <div className="row mx-0 my-4 d-flex overflow-auto">
-              {ChapterProgress &&
-                ChapterProgress.map((chapter, index) => (
+              {book.chapters &&
+                book.chapters.map((chapter, index) => (
                   <div
                     key={index}
                     className="d-flex justify-content-between mb-2 my-md-0 chapter-card"
                     style={{ textAlign: "start" }}
                   >
-                    <h6 className="col-md-2 col-4">{chapter.chapterNo}</h6>
-                    <p className="col-md-4 col-7">{chapter.title}</p>
-                    <p className="col-md-3 col-4">{chapter.completedDate}</p>
-                    <p className="col-md-3 col-4">{chapter.progress}</p>
+                    <h6 className="col-md-1 col-sm-2 col-4">
+                      {chapter.chapterNo}
+                    </h6>
+                    <p className="col-md-2 col-sm-3 col-7">{chapter.title}</p>
+                    <p className="col-md-2 col-sm-2 col-4">{chapter.endDate}</p>
+                    <p className="col-md-5 col-4">{chapter.status}</p>
                   </div>
                 ))}
             </div>

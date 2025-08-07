@@ -36,7 +36,7 @@ const Dashboard = () => {
               percentage={currentBook?.progress}
               title={currentBook?.title}
               url={currentBook?.url}
-              heading="Contiune Reading"
+              heading="Continue Reading"
             />
           </div>
         </div>

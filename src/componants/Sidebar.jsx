@@ -32,7 +32,7 @@ const Sidebar = () => {
         <div
           onClick={() => navigate("/mycollection")}
           className={`rounded-4 fs-6 ${
-            location.pathname == "/mycollection" || location.pathname == "/"
+            location.pathname == "/mycollection" || location.pathname == "/bookpage"
               ? "selected-category"
               : ""
           }`}

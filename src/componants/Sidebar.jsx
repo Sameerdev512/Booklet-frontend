@@ -12,14 +12,14 @@ const Sidebar = () => {
 
   return (
     <div className="justify-content-center align-content-start px-xl-5 px-2 sidebar-container">
-      <div className="my-4 mb-5 brand">
+      <div className="my-4 mb-5 d-md-block d-none brand">
         <h2 className="fw-bolder">
           <span className="text-primary">Book</span>Let
           <span className="text-primary">.</span>
         </h2>
         <span className="fw-bolder fs-6">by Datacode.</span>
       </div>
-      <div className="catelog">
+      <div className="catelog mt-md-0 mt-3">
         <div
           className={`rounded-4 ${
             location.pathname == "/dashboard" ? "selected-category" : ""

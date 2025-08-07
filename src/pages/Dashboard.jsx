@@ -22,7 +22,7 @@ const Dashboard = () => {
       </div>
       <div className="col-md-9 col-12 right-section">
         <Navbar />
-        <div className="row mx-0 hero-section">
+        <div className="row mx-0 mt-5 pt-5 hero-section">
           <div className="col-md-8 col-12 left">
             <Banner
               title={bannerDetails?.title}
@@ -48,7 +48,7 @@ const Dashboard = () => {
           </div>
           <div className="row mx-0 justify-content-md-start justify-content-center">
             {Books &&
-              Books.map((item,index) => (
+              Books.map((item, index) => (
                 <Card
                   key={index}
                   id={item.id}

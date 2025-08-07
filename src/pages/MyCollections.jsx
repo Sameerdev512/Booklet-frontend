@@ -23,7 +23,7 @@ const MyCollections = () => {
       </div>
       <div className="col-md-9 col-12 right-section">
         <Navbar />
-        <div className="row mx-0 my-md-3 hero-section">
+        <div className="row mx-0 pt-5 hero-section">
           <div className="col-md-8 col-12 mb-md-0 mb-4 rounded-3 left">
             <div className="fs-4 fw-bolder mb-2 heading">Completed Read</div>
             <div className="d-flex flex-row overflow-auto gap-3 hide-scrollbar">

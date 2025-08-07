@@ -1,16 +1,20 @@
 import "../assets/scss/style.scss";
+import { useState } from "react";
 import { IoNotifications } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Sidebar from "./Sidebar";
 
 const Navbar = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => setShowSidebar(!showSidebar);
 
   return (
     <div>
-      <nav className="my-md-4 my-3 navbar-container">
+      <nav className="mb-md-4 mb-3 py-3 navbar-container position-fixed">
         <div className="row mx-0">
           <div className="col-8 my-auto left">
-            <div className="d-md-none d-hidden icon">
+            <div className="d-md-none d-hidden icon" onClick={toggleSidebar}>
               <span>
                 <RxHamburgerMenu />
               </span>
@@ -33,10 +37,16 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+        {showSidebar && (
+          <nav
+            className={`d-block d-md-none position-fixed w-75 sidebar-slide ${
+              showSidebar ? "active" : ""
+            }`}
+          >
+            <Sidebar />
+          </nav>
+        )}
       </nav>
-
-      {/* mobile responsive side Navbar*/}
-      {/* <nav className="d-md-hidden d-block col-8"><Sidebar/></nav> */}
     </div>
   );
 };

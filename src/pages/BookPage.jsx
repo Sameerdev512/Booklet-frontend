@@ -23,7 +23,7 @@ const BookPage = () => {
         </div>
         <div className="col-md-9 col-12 px-3 right-section">
           <Navbar />
-          <div className="my-md-3 my-0 hero-section">
+          <div className="pt-5 hero-section">
             <div className="row">
               <div className="col-md-8 col-12 left">
                 <div className="fs-1 fw-bolder mb-md-3 mb-1 heading">

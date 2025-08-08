@@ -5,37 +5,65 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgressCard from "../componants/ProgressCard";
 import { useParams } from "react-router-dom";
-import { addChapter } from "../redux/bookSlice";
+import { addChapter, updateChapterStatus } from "../redux/bookSlice";
 
 const BookPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const [displayModal,setDisplayModal] = useState("none")
-  const [chapterDetails,setChapterDetails]=useState({
-    chapterNo:0,
-    title:"",
-    endDate:"",
-    status:"pending"
-  })
-
-  const handleChange = (e) =>{
-    const {name,value} = e.target;
-    setChapterDetails({...chapterDetails,[name]:value})
-    console.table(chapterDetails)
-  }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault();
-    dispatch(addChapter({
-      bookId:book.id,
-      chapter:chapterDetails
-    }))
-    console.log(chapterDetails)
-  }
-
   const Books = useSelector((state) => state.books.list);
-  const book = Books.find((item) => item.id == id);
-  // console.log(book);
+  const [displayModal, setDisplayModal] = useState("none");
+  const [chapterDetails, setChapterDetails] = useState({
+    chapterNo: 0,
+    title: "",
+    endDate: "",
+    status: "pending",
+  });
+
+  const book = Books.find(book => book.id == id)
+  let progress=0;
+  if (book && book.chapters) {
+    const completedChapters = book.chapters.filter(
+      (chapter) => chapter.status === "completed"
+    );
+
+    const totalChapters = book.chapters.length;
+    progress = (completedChapters.length / totalChapters) * 100;
+
+  }
+    
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setChapterDetails({ ...chapterDetails, [name]: value });
+    console.table(chapterDetails);
+  };
+
+  const handleChapterStatus = (chapter_no) => {
+    dispatch(
+      updateChapterStatus({
+        bookId: book.id,
+        chapterNo: chapter_no,
+      })
+    );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      addChapter({
+        bookId: book.id,
+        chapter: chapterDetails,
+      })
+    );
+    // console.log(chapterDetails)
+    setChapterDetails({
+      chapterNo: 0,
+      title: "",
+      endDate: "",
+      status: "pending",
+    });
+    setDisplayModal("none");
+  };
 
   return (
     <div className="cu-container book-page-container">
@@ -57,7 +85,7 @@ const BookPage = () => {
               <div className="col-sm-4 col-12 d-flex justify-content-md-center justify-content-start align-content-start py-md-0 py-4 right">
                 <ProgressCard
                   id={book?.id}
-                  percentage={book?.progress}
+                  percentage={progress}
                   title={book?.title}
                   url={book?.url}
                   heading="Contiune Reading"
@@ -78,10 +106,9 @@ const BookPage = () => {
 
             {/* Model */}
             <div
-              className={`d-${displayModal} modal-overlay border border-2 p-4 rounded-4 w-50 position-absolute bg-dark`}
-              style={{ top: "10vh", right: "15vw" }}
+              className={`d-${displayModal} modal border border-2 p-4 rounded-4 position-absolute bg-dark`}
             >
-              <div className="modal-box w-75 mx-auto">
+              <div className="modal-box mx-auto">
                 <div className="d-flex flex-row justify-content-between">
                   <h3 className="text-center">Add New Chapter</h3>
                   <button
@@ -97,6 +124,7 @@ const BookPage = () => {
                     <input
                       type="number"
                       name="chapterNo"
+                      value={chapterDetails.chapterNo > 0 ? chapterDetails.chapterNo:""}
                       className="form-control mb-md-4 mb-2 cu-input"
                       placeholder="Chapter No"
                       onChange={handleChange}
@@ -107,6 +135,7 @@ const BookPage = () => {
                     <input
                       type="text"
                       name="title"
+                      value={chapterDetails.title}
                       className="form-control mb-md-4 mb-2 cu-input"
                       placeholder="Chapter Title"
                       onChange={handleChange}
@@ -117,6 +146,7 @@ const BookPage = () => {
                     <input
                       type="text"
                       name="endDate"
+                      value={chapterDetails.endDate}
                       className="form-control mb-md-4 mb-3 cu-input"
                       placeholder="e.g. 10/12/2027"
                       onChange={handleChange}
@@ -153,12 +183,17 @@ const BookPage = () => {
                     className="d-flex justify-content-between mb-2 my-md-0 chapter-card"
                     style={{ textAlign: "start" }}
                   >
-                    <h6 className="col-md-1 col-sm-2 col-4">
+                    <h6 className="col-md-2 col-sm-2 col-4">
                       {chapter.chapterNo}
                     </h6>
-                    <p className="col-md-2 col-sm-3 col-7">{chapter.title}</p>
+                    <p className="col-md-2 col-sm-3 col-5">{chapter.title}</p>
                     <p className="col-md-2 col-sm-2 col-4">{chapter.endDate}</p>
-                    <p className="col-md-5 col-4">{chapter.status}</p>
+                    <p
+                      className="col-md-5 col-4"
+                      onClick={() => handleChapterStatus(chapter.chapterNo)}
+                    >
+                      {chapter.status}
+                    </p>
                   </div>
                 ))}
             </div>

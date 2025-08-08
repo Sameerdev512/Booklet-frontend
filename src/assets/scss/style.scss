@@ -227,6 +227,21 @@ $highlight-font: #4a83f6;
         }
       }
     }
+
+    .modal{
+      top:20vh;
+      width:40vw;
+      left:30vw;
+      height: max-content;
+      @media(max-width:960px)
+      {
+        top:20vh;
+        height:50vh;  
+        left:10vw;
+        width:80vw;
+        margin:auto;
+      }
+    }
   }
 }
 

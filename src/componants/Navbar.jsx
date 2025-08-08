@@ -33,7 +33,7 @@ const Navbar = () => {
               <IoNotifications size="1.5rem" className="my-2" />
             </div>
             <div>
-              <img src="src/assets/images/profile.png"></img>
+              <img src="../src/assets/images/profile.png"></img>
             </div>
           </div>
         </div>

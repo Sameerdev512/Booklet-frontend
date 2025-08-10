@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        {showSidebar && (
+        
           <nav
             className={`d-block d-md-none position-fixed w-75 sidebar-slide ${
               showSidebar ? "active" : ""
@@ -45,7 +45,6 @@ const Navbar = () => {
           >
             <Sidebar />
           </nav>
-        )}
       </nav>
     </div>
   );

@@ -14,10 +14,12 @@ const ProgressCard = ({ id, title, url, heading, percentage }) => {
         <CircularProgressbar
           value={percentage}
           strokeWidth={12}
+          background
           styles={buildStyles({
-            textColor: "black",
+            textColor: "white",
             pathColor: "blue",
             trailColor: "whitesmoke",
+            backgroundColor: "#989af9ff",
           })}
           text={`${percentage}% `}
           className="p-5"

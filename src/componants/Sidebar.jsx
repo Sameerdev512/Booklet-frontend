@@ -13,7 +13,7 @@ const Sidebar = ({id}) => {
   return (
     <div className="justify-content-center align-content-start px-xl-5 px-2 sidebar-container">
       <div className="my-4 mb-5 d-md-block d-none brand">
-        <Link to="/">
+        <Link to="/" className="text-decoration-none">
           <h2 className="fw-bolder">
             <span className="text-primary">Book</span>Let
             <span className="text-primary">.</span>

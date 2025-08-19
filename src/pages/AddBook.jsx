@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import "../assets/scss/style.scss";
 import { addBook } from "../redux/bookSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const Books = useSelector((state) => state.books.list);
   const [bookDetails, setBookDetails] = useState({
+    id:Books.length+1,
     title: "",
     author: "",
     pages: "",
+    description:"",
     url: "src/assets/images/01.png",
   });
 
@@ -31,6 +34,7 @@ const AddBook = () => {
         title: "",
         author: "",
         pages: "",
+        description:"",
         url: "src/assets/images/01.png",
       });
     }
@@ -72,6 +76,17 @@ const AddBook = () => {
                   value={bookDetails.author}
                   className="form-control mb-4 p-2 cu-input"
                   placeholder="Author"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputAuthor">Book Description</label>
+                <textarea
+                  type="text"
+                  name="description"
+                  value={bookDetails.description}
+                  className="form-control mb-4 p-2 cu-input"
+                  placeholder="Description"
                   onChange={handleChange}
                 />
               </div>

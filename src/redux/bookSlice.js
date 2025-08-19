@@ -56,18 +56,18 @@ const bookSlice = createSlice({
                 }
             }
         },
-        updateChapterStatus:(state,action)=>{
-            const {bookId,chapterNo} = action.payload;
+        updateChapterStatus: (state, action) => {
+            const { bookId, chapterNo } = action.payload;
 
-            const book = state.list.find(book => bookId ==book.id)
+            const book = state.list.find(book => bookId == book.id)
 
             if (book) {
-               const chapter = book.chapters.find(item =>item.chapterNo == chapterNo)
-               chapter.status = "completed"
+                const chapter = book.chapters.find(item => item.chapterNo == chapterNo)
+                chapter.status = "completed"
             }
         }
     },
 });
 
-export const { addBook, addChapter,updateChapterStatus } = bookSlice.actions;
+export const { addBook, addChapter, updateChapterStatus } = bookSlice.actions;
 export default bookSlice.reducer;

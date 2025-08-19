@@ -19,8 +19,8 @@ const BookPage = () => {
     status: "pending",
   });
 
-  const book = Books.find(book => book.id == id)
-  let progress=0;
+  const book = Books.find((book) => book.id == id);
+  let progress = 0;
   if (book && book.chapters) {
     const completedChapters = book.chapters.filter(
       (chapter) => chapter.status === "completed"
@@ -28,9 +28,7 @@ const BookPage = () => {
 
     const totalChapters = book.chapters.length;
     progress = (completedChapters.length / totalChapters) * 100;
-
   }
-    
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,7 +67,7 @@ const BookPage = () => {
     <div className="cu-container book-page-container">
       <div className="row mx-0">
         <div className="col-md-3 col-12 d-md-block d-none left-section">
-          <Sidebar />
+          <Sidebar id={id}/>
         </div>
         <div className="col-md-9 col-12 px-3 right-section">
           <Navbar />
@@ -124,7 +122,11 @@ const BookPage = () => {
                     <input
                       type="number"
                       name="chapterNo"
-                      value={chapterDetails.chapterNo > 0 ? chapterDetails.chapterNo:""}
+                      value={
+                        chapterDetails.chapterNo > 0
+                          ? chapterDetails.chapterNo
+                          : ""
+                      }
                       className="form-control mb-md-4 mb-2 cu-input"
                       placeholder="Chapter No"
                       onChange={handleChange}

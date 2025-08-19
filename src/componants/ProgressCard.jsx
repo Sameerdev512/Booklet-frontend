@@ -3,6 +3,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const ProgressCard = ({ id, title, url, heading, percentage }) => {
+  
   return (
     <div className="position-relative progress-container">
       <h4 className="fs-6 fw-bolder py-0">{heading}</h4>

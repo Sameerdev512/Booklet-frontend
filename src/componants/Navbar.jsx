@@ -6,7 +6,6 @@ import Sidebar from "./Sidebar";
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-
   const toggleSidebar = () => setShowSidebar(!showSidebar);
 
   return (
@@ -37,14 +36,14 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        
-          <nav
-            className={`d-block d-md-none position-fixed w-75 sidebar-slide ${
-              showSidebar ? "active" : ""
-            }`}
-          >
-            <Sidebar />
-          </nav>
+        {/* Active sidebar in mobile view */}
+        <nav
+          className={`d-block d-md-none position-fixed w-75 sidebar-slide ${
+            showSidebar ? "active" : ""
+          }`}
+        >
+          <Sidebar />
+        </nav>
       </nav>
     </div>
   );

@@ -1,7 +1,6 @@
 import "../assets/scss/style.scss";
 
 const Banner = ({ title, author, url }) => {
-
   return (
     <div
       className="rounded-2 banner-container"

@@ -1,8 +1,7 @@
-
 import { useSelector } from "react-redux";
 const Home = () => {
   const books = useSelector((state) => state.books.list);
-  console.log(books)
+  console.log(books);
 
   return (
     <div className="bg-dark text-white">
@@ -14,6 +13,6 @@ const Home = () => {
       ))}
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

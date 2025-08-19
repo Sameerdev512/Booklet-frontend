@@ -4,19 +4,21 @@ import { FaBookOpen } from "react-icons/fa6";
 import { BsSaveFill } from "react-icons/bs";
 import { SlSettings } from "react-icons/sl";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({id}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
     <div className="justify-content-center align-content-start px-xl-5 px-2 sidebar-container">
       <div className="my-4 mb-5 d-md-block d-none brand">
-        <h2 className="fw-bolder">
-          <span className="text-primary">Book</span>Let
-          <span className="text-primary">.</span>
-        </h2>
+        <Link to="/">
+          <h2 className="fw-bolder">
+            <span className="text-primary">Book</span>Let
+            <span className="text-primary">.</span>
+          </h2>
+        </Link>
         <span className="fw-bolder fs-6">by Datacode.</span>
       </div>
       <div className="catelog mt-md-0 mt-3">
@@ -32,7 +34,8 @@ const Sidebar = () => {
         <div
           onClick={() => navigate("/mycollection")}
           className={`rounded-4 fs-6 ${
-            location.pathname == "/mycollection" || location.pathname == "/bookpage"
+            location.pathname == "/mycollection" ||
+            location.pathname == `/book/${id}`
               ? "selected-category"
               : ""
           }`}

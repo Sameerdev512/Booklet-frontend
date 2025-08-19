@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const AddBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [bookDetails, setBookDetails] = useState({
     title: "",
     author: "",

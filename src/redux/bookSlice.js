@@ -12,7 +12,7 @@ const bookSlice = createSlice({
             author: "joshua Williamson",
             url: "../src/assets/images/01.png",
             chapters: [{
-                chapterNo: "chapter 1",
+                chapterNo:1,
                 title: "first chapter",
                 endDate: "12/07/2024",
                 status: "pending"
@@ -52,9 +52,30 @@ const bookSlice = createSlice({
                     book.chapters = [];
                     book.chapters.push(chapter)
                 } else {
-                    book.chapters.push(chapter)
+                    const cc = book.chapters.find(c => c.chapterNo == chapter.chapterNo)
+                    if(cc)
+                    {
+                        cc.chapterNo = chapter.chapterNo;
+                        cc.title = chapter.title;
+                        cc.endDate = chapter.endDate;
+                    }else{
+
+                        book.chapters.push(chapter)
+                    }
                 }
             }
+        },
+        deleteChapter:(state,action) =>{
+            const {bookId, chapterNo} = action.payload;
+
+            const book = state.list.find(book => book.id == bookId);
+            if(book)
+            {
+                book.chapters = book.chapters.filter((chapter)=>{
+                    chapter.chapterNo != chapterNo;
+                })
+            }
+
         },
         updateChapterStatus: (state, action) => {
             const { bookId, chapterNo } = action.payload;
@@ -69,5 +90,5 @@ const bookSlice = createSlice({
     },
 });
 
-export const { addBook, addChapter, updateChapterStatus } = bookSlice.actions;
+export const { addBook, addChapter, updateChapterStatus,deleteChapter } = bookSlice.actions;
 export default bookSlice.reducer;

@@ -226,22 +226,12 @@ $highlight-font: #4a83f6;
           font-family: $font-stack;
         }
       }
-    }
 
-    .modal{
-      top:20vh;
-      width:40vw;
-      left:30vw;
-      height: max-content;
-      @media(max-width:960px)
-      {
-        top:20vh;
-        height:50vh;  
-        left:10vw;
-        width:80vw;
-        margin:auto;
+      .heading {
+        width: 68vw;
       }
     }
+
   }
 }
 
@@ -252,6 +242,20 @@ $highlight-font: #4a83f6;
     right: 7%
   }
 }
+
+// .modal .form-group label {
+//   color: black; // or #f8f9fa for Bootstrap white
+// }
+
+// .modal .title {
+//   color: black; // or #f8f9fa for Bootstrap white
+// }
+
+.modal .form-group input {
+  background-color: transparent;
+  color: white;
+}
+
 
 @media(min-width:768px) and (max-width:992px) {
   .banner-container {
@@ -266,12 +270,15 @@ $highlight-font: #4a83f6;
     }
   }
 
+
+
   .card-container {
     img {
       width: 150px;
     }
   }
 }
+
 
 @media(min-width:200px) and (max-width:768px) {
   .navbar-container {
@@ -312,6 +319,16 @@ $highlight-font: #4a83f6;
           @media(max-width:576px) {
             font-size: 0.6rem;
           }
+        }
+      }
+    }
+  }
+
+  .book-page-container {
+    .right-section {
+      .last-section {
+        .heading {
+          width: 100%;
         }
       }
     }

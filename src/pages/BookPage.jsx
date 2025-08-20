@@ -5,19 +5,25 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgressCard from "../componants/ProgressCard";
 import { useParams } from "react-router-dom";
-import { addChapter, updateChapterStatus } from "../redux/bookSlice";
+import {
+  addChapter,
+  updateChapterStatus,
+  deleteChapter,
+} from "../redux/bookSlice";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const BookPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const Books = useSelector((state) => state.books.list);
-  const [displayModal, setDisplayModal] = useState("none");
+  const [modal, setModal] = useState(false);
   const [chapterDetails, setChapterDetails] = useState({
     chapterNo: 0,
     title: "",
     endDate: "",
     status: "pending",
   });
+  const [modalTitle,setModalTitle] = useState("Add Chapter")
 
   const book = Books.find((book) => book.id == id);
   let progress = 0;
@@ -29,6 +35,10 @@ const BookPage = () => {
     const totalChapters = book.chapters.length;
     progress = (completedChapters.length / totalChapters) * 100;
   }
+
+  const toggle = () => {
+    setModal(!modal);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,21 +63,33 @@ const BookPage = () => {
         chapter: chapterDetails,
       })
     );
-    // console.log(chapterDetails)
+    // console.log(chaptersDetails)
     setChapterDetails({
       chapterNo: 0,
       title: "",
       endDate: "",
       status: "pending",
     });
-    setDisplayModal("none");
+    toggle();
+  };
+
+  const handleDelete = (chapterNo) => {
+    if (confirm("Are you sure to delete chapter?")) {
+      dispatch(
+        deleteChapter({
+          bookId: book.id,
+          chapterNo: chapterNo,
+        })
+      );
+    }
+    toggle();
   };
 
   return (
     <div className="cu-container book-page-container">
       <div className="row mx-0">
         <div className="col-md-3 col-12 d-md-block d-none left-section">
-          <Sidebar id={id}/>
+          <Sidebar id={id} />
         </div>
         <div className="col-md-9 col-12 px-3 right-section">
           <Navbar />
@@ -92,31 +114,35 @@ const BookPage = () => {
             </div>
           </div>
           <div className="last-section">
-            <div className="fs-4 fw-bolder heading">
+            <div className="fs-4 fw-bolder d-flex justify-content-between heading">
               <span className="fs-4">Reading Plan</span>
               <button
-                className="btn bg-success text-white mx-2"
-                onClick={() => setDisplayModal("block")}
+                className="btn bg-success text-white "
+                onClick={() => {
+                  toggle();
+                  setChapterDetails({
+                    chapterNo: 0,
+                    title: "",
+                    endDate: "",
+                    status: "pending",
+                  });
+                }}
               >
                 Add Chapter
               </button>
             </div>
 
             {/* Model */}
-            <div
-              className={`d-${displayModal} modal border border-2 p-4 rounded-4 position-absolute bg-dark`}
-            >
-              <div className="modal-box mx-auto">
-                <div className="d-flex flex-row justify-content-between">
-                  <h3 className="text-center">Add New Chapter</h3>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => setDisplayModal("none")}
-                  >
-                    Close
-                  </button>
-                </div>
-                <form onSubmit={handleSubmit}>
+            <Modal className="modal" isOpen={modal} toggle={toggle} centered>
+              <ModalHeader
+                className="title"
+                toggle={toggle}
+                style={{ background: "#282837" }}
+              >
+                {modalTitle}
+              </ModalHeader>
+              <ModalBody style={{ background: "#282837" }}>
+                <form>
                   <div className="form-group">
                     <label htmlFor="chapterNo">Chapter No.</label>
                     <input
@@ -146,7 +172,7 @@ const BookPage = () => {
                   <div className="form-group">
                     <label htmlFor="chapterEndDate">Chapter EndDate</label>
                     <input
-                      type="text"
+                      type="date"
                       name="endDate"
                       value={chapterDetails.endDate}
                       className="form-control mb-md-4 mb-3 cu-input"
@@ -154,50 +180,80 @@ const BookPage = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="modal-actions">
-                    <button type="submit" className="btn btn-success mx-2">
-                      Save Chapter
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      onClick={() => setDisplayModal("none")}
-                    >
-                      Cancel
-                    </button>
-                  </div>
                 </form>
-              </div>
-            </div>
+              </ModalBody>
+              <ModalFooter style={{ background: "#282837" }}>
+                <Button
+                  color="danger"
+                  onClick={() => handleDelete(chapterDetails.chapterNo)}
+                >
+                  Delete
+                </Button>{" "}
+                <Button color="primary" onClick={handleSubmit}>
+                  Save Changes
+                </Button>{" "}
+                <Button color="secondary" onClick={toggle}>
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </Modal>
+
             <div className="row chapter-progress-heading">
               <div className="col-md-5 col-6 fs-3 fw-bolder">
-                Chapters: <span style={{ color: "#4A83F6" }}>20</span>
+                Chapters:{" "}
+                <span style={{ color: "#4A83F6" }}>
+                  {book?.chapters?.length}
+                </span>
               </div>
               <div className="col-md-5 col-6 fs-3 fw-bolder">
                 Days: <span style={{ color: "#4A83F6" }}>20</span>
               </div>
             </div>
             <div className="row mx-0 my-4 d-flex overflow-auto">
-              {book.chapters &&
-                book.chapters.map((chapter, index) => (
-                  <div
-                    key={index}
-                    className="d-flex justify-content-between mb-2 my-md-0 chapter-card"
-                    style={{ textAlign: "start" }}
-                  >
-                    <h6 className="col-md-2 col-sm-2 col-4">
-                      {chapter.chapterNo}
-                    </h6>
-                    <p className="col-md-2 col-sm-3 col-5">{chapter.title}</p>
-                    <p className="col-md-2 col-sm-2 col-4">{chapter.endDate}</p>
-                    <p
-                      className="col-md-5 col-4"
-                      onClick={() => handleChapterStatus(chapter.chapterNo)}
-                    >
-                      {chapter.status}
-                    </p>
-                  </div>
-                ))}
+              <table className="table table-dark">
+                <thead>
+                  <tr>
+                    <th>Chapter No.</th>
+                    <th>Name</th>
+                    <th>AssignedDate</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {book.chapters &&
+                    book.chapters.map((chapter) => (
+                      <tr>
+                        <td>{chapter?.chapterNo}</td>
+                        <td>{chapter?.title}</td>
+                        <td>{chapter?.endDate}</td>
+                        <td
+                          onClick={() =>
+                            handleChapterStatus(chapter?.chapterNo)
+                          }
+                          style={{
+                            color:
+                              chapter.status == "pending" ? "yellow" : "green",
+                          }}
+                        >
+                          {chapter?.status}
+                        </td>
+                        <td>
+                          <button
+                            className="btn btn-success"
+                            onClick={() => {
+                              toggle();
+                              setChapterDetails(chapter);
+                              setModalTitle("Edit Chapter");
+                            }}
+                          >
+                            Edit
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

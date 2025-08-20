@@ -1,7 +1,7 @@
 import "../assets/scss/style.scss";
 import Sidebar from "../componants/Sidebar";
 import Navbar from "../componants/Navbar";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgressCard from "../componants/ProgressCard";
 import { useParams } from "react-router-dom";
@@ -23,9 +23,20 @@ const BookPage = () => {
     endDate: "",
     status: "pending",
   });
-  const [modalTitle,setModalTitle] = useState("Add Chapter")
+  const [modalTitle, setModalTitle] = useState("Add Chapter");
+  const [totalDays, setTotalDays] = useState(0);
 
   const book = Books.find((book) => book.id == id);
+
+  useEffect(() => {
+    if (book && book.chapters) {
+      const d = book.chapters.reduce((sum, chapter) => {
+        return sum + calculateDays(chapter.endDate);
+      }, 0);
+      setTotalDays(d);
+    }
+  }, [book,chapterDetails]);
+
   let progress = 0;
   if (book && book.chapters) {
     const completedChapters = book.chapters.filter(
@@ -57,20 +68,26 @@ const BookPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(
-      addChapter({
-        bookId: book.id,
-        chapter: chapterDetails,
-      })
-    );
-    // console.log(chaptersDetails)
-    setChapterDetails({
-      chapterNo: 0,
-      title: "",
-      endDate: "",
-      status: "pending",
-    });
-    toggle();
+    if (
+      chapterDetails.chapterNo &&
+      chapterDetails.title &&
+      chapterDetails.endDate
+    ) {
+      dispatch(
+        addChapter({
+          bookId: book.id,
+          chapter: chapterDetails,
+        })
+      );
+      // console.log(chaptersDetails)
+      setChapterDetails({
+        chapterNo: 0,
+        title: "",
+        endDate: "",
+        status: "pending",
+      });
+      toggle();
+    }
   };
 
   const handleDelete = (chapterNo) => {
@@ -83,6 +100,21 @@ const BookPage = () => {
       );
     }
     toggle();
+  };
+
+  const calculateDays = (endDate) => {
+    if (!endDate) return 0;
+
+    const today = new Date();
+    const targetDate = new Date(endDate);
+
+    // Difference in milliseconds
+    const diffTime = targetDate.getTime() - today.getTime();
+
+    // Convert milliseconds → days
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    return diffDays > 0 ? diffDays : 0; // no negative days
   };
 
   return (
@@ -144,7 +176,7 @@ const BookPage = () => {
               <ModalBody style={{ background: "#282837" }}>
                 <form>
                   <div className="form-group">
-                    <label htmlFor="chapterNo">Chapter No.</label>
+                    <label htmlFor="chapterNo">Chapter No.*</label>
                     <input
                       type="number"
                       name="chapterNo"
@@ -159,7 +191,7 @@ const BookPage = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="chapterTitle">Chapter Title </label>
+                    <label htmlFor="chapterTitle">Chapter Title* </label>
                     <input
                       type="text"
                       name="title"
@@ -170,7 +202,7 @@ const BookPage = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="chapterEndDate">Chapter EndDate</label>
+                    <label htmlFor="chapterEndDate">Chapter EndDate*</label>
                     <input
                       type="date"
                       name="endDate"
@@ -178,6 +210,7 @@ const BookPage = () => {
                       className="form-control mb-md-4 mb-3 cu-input"
                       placeholder="e.g. 10/12/2027"
                       onChange={handleChange}
+                      min={new Date().toISOString().split("T")[0]}
                     />
                   </div>
                 </form>
@@ -206,7 +239,7 @@ const BookPage = () => {
                 </span>
               </div>
               <div className="col-md-5 col-6 fs-3 fw-bolder">
-                Days: <span style={{ color: "#4A83F6" }}>20</span>
+                Days: <span style={{ color: "#4A83F6" }}>{totalDays}</span>
               </div>
             </div>
             <div className="row mx-0 my-4 d-flex overflow-auto">

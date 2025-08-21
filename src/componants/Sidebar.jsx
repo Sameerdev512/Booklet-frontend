@@ -26,6 +26,7 @@ const Sidebar = ({id}) => {
           className={`rounded-4 ${
             location.pathname == "/dashboard" ? "selected-category" : ""
           }`}
+          role="button"
           onClick={() => navigate("/dashboard")}
         >
           <FaBox className="mx-3 my-lg-3 my-3 fs-6" />
@@ -33,6 +34,7 @@ const Sidebar = ({id}) => {
         </div>
         <div
           onClick={() => navigate("/mycollection")}
+          role="button"
           className={`rounded-4 fs-6 ${
             location.pathname == "/mycollection" ||
             location.pathname == `/book/${id}`
@@ -43,7 +45,7 @@ const Sidebar = ({id}) => {
           <FaBookOpen className="m-3 my-lg-3" />
           My Collections
         </div>
-        <div className="rounded-4 fs-6 ">
+        <div className="rounded-4 fs-6" role="button">
           <BsSaveFill className="m-3 my-lg-3" />
           Favourites
         </div>

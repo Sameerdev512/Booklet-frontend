@@ -26,7 +26,6 @@ const AddChapterModal = ({ book, modalTitle, chapter, showModal, onClose }) => {
           chapter: chapterDetails,
         })
       );
-      // console.log(chaptersDetails)
       setChapterDetails({
         chapterNo: 0,
         title: "",
@@ -86,12 +85,6 @@ const AddChapterModal = ({ book, modalTitle, chapter, showModal, onClose }) => {
         </form>
       </ModalBody>
       <ModalFooter style={{ background: "#282837" }}>
-        {/* <Button
-          color="danger"
-          onClick={() => handleDelete(chapterDetails.chapterNo)}
-        >
-          Delete
-        </Button> */}
         <Button color="primary" onClick={handleSubmit}>
           Save Changes
         </Button>

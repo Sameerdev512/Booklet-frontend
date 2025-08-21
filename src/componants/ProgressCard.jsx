@@ -2,7 +2,7 @@ import Card from "./Card";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const ProgressCard = ({ id, title, url, heading, percentage }) => {
+const ProgressCard = ({ id, title, url, heading, progress }) => {
   
   return (
     <div className="position-relative progress-container">
@@ -12,7 +12,7 @@ const ProgressCard = ({ id, title, url, heading, percentage }) => {
       </div>
       <div className="position-absolute progress-bar">
         <CircularProgressbar
-          value={percentage}
+          value={progress??0}
           strokeWidth={12}
           background
           styles={buildStyles({
@@ -21,7 +21,7 @@ const ProgressCard = ({ id, title, url, heading, percentage }) => {
             trailColor: "whitesmoke",
             backgroundColor: "#989af9ff",
           })}
-          text={`${percentage}% `}
+          text={`${progress ? progress : 0}% `}
           className="p-5"
         />
       </div>

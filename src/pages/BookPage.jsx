@@ -2,26 +2,20 @@ import "../assets/scss/style.scss";
 import Sidebar from "../componants/Sidebar";
 import Navbar from "../componants/Navbar";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ProgressCard from "../componants/ProgressCard";
 import { useParams } from "react-router-dom";
 import AddChapterModal from "./modal/AddChapterModal";
-import { updateChapterStatus} from "../redux/bookSlice";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaPencilAlt } from "react-icons/fa";
-import DeleteChapterModal from "./modal/DeleteChapterModal";
+import ChapterTable from "./modal/ChapterTable";
 
 const BookPage = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
   const Books = useSelector((state) => state.books.list);
   const [modalTitle, setModalTitle] = useState("Add Chapter");
   const [totalDays, setTotalDays] = useState(0);
-  const book = Books.find((book) => book.id == id);
   const [showModal, setShowModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteChapter, setDeleteChapter] = useState(0);
-  const [progress,setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [book, setBook] = useState(null);
 
   const [chapterDetails, setChapterDetails] = useState({
     chapterNo: 0,
@@ -31,9 +25,13 @@ const BookPage = () => {
   });
 
   useEffect(() => {
-    if (book && book.chapters) {
+    const foundBook = Books.find((book) => book.id == id);
+    if (foundBook) {
+      setBook(foundBook);
+    }
+    if (foundBook && foundBook.chapters) {
       //calculate days
-      const d = book.chapters.reduce((sum, chapter) => {
+      const d = foundBook.chapters.reduce((sum, chapter) => {
         return sum > calculateDays(chapter.endDate)
           ? sum
           : calculateDays(chapter.endDate);
@@ -42,24 +40,14 @@ const BookPage = () => {
 
       //calculate progress
       let progress = 0;
-      const completedChapters = book.chapters.filter(
+      const completedChapters = foundBook.chapters.filter(
         (chapter) => chapter.status === "completed"
       );
-
-      const totalChapters = book.chapters.length;
+      const totalChapters = foundBook.chapters.length;
       progress = (completedChapters.length / totalChapters) * 100;
-      setProgress(progress);d
+      setProgress(progress);
     }
-  }, [book, Books, showModal]);
-
-  const handleChapterStatus = (chapter_no) => {
-    dispatch(
-      updateChapterStatus({
-        bookId: book.id,
-        chapterNo: chapter_no,
-      })
-    );
-  };
+  }, [Books, id]);
 
   const calculateDays = (endDate) => {
     if (!endDate) return 0;
@@ -90,7 +78,7 @@ const BookPage = () => {
               <div className="col-sm-4 col-12 d-flex justify-content-md-center justify-content-start align-content-start py-md-0 py-4 right">
                 <ProgressCard
                   id={book?.id}
-                  percentage={progress}
+                  progress={progress}
                   title={book?.title}
                   url={book?.url}
                   heading="Contiune Reading"
@@ -111,14 +99,13 @@ const BookPage = () => {
                     status: "pending",
                   });
                   setShowModal(true);
-                  setModalTitle("Add Chapter")
+                  setModalTitle("Add Chapter");
                 }}
               >
                 Add Chapter
               </button>
             </div>
-
-            {/* Modal */}
+            {/* Modal - Add Chapter */}
             {showModal && (
               <AddChapterModal
                 book={book}
@@ -128,21 +115,11 @@ const BookPage = () => {
                 onClose={() => setShowModal(false)}
               />
             )}
-
-            {setShowModal && (
-              <DeleteChapterModal
-                book={book}
-                chapterNo={deleteChapter}
-                showModal={showDeleteModal}
-                onClose={() => setShowDeleteModal(false)}
-              />
-            )}
-
             <div className="row chapter-progress-heading">
               <div className="col-md-5 col-6 fs-3 fw-bolder">
-                Chapters:
+                Chapters:{" "}
                 <span style={{ color: "#4A83F6" }}>
-                  {book?.chapters?.length}
+                  {book?.chapters?.length ?? 0}
                 </span>
               </div>
               <div className="col-md-5 col-6 fs-3 fw-bolder">
@@ -150,59 +127,7 @@ const BookPage = () => {
               </div>
             </div>
             <div className="row mx-0 my-4 d-flex overflow-auto">
-              <table className="table table-dark">
-                <thead>
-                  <tr>
-                    <th>Chapter No.</th>
-                    <th>Name</th>
-                    <th>AssignedDate</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {book.chapters &&
-                    book.chapters.map((chapter) => (
-                      <tr>
-                        <td>{chapter?.chapterNo}</td>
-                        <td>{chapter?.title}</td>
-                        <td>{chapter?.endDate}</td>
-                        <td
-                          onClick={() =>
-                            handleChapterStatus(chapter?.chapterNo)
-                          }
-                          style={{
-                            color:
-                              chapter.status == "pending" ? "yellow" : "green",
-                          }}
-                        >
-                          {chapter?.status}
-                        </td>
-                        <td>
-                          <button
-                            className="btn btn-success"
-                            onClick={() => {
-                              setChapterDetails(chapter);
-                              setModalTitle("Edit Chapter");
-                              setShowModal(true);
-                            }}
-                          >
-                            <FaPencilAlt />
-                          </button>
-                          <button
-                            className="btn btn-danger mx-2"
-                            onClick={() => {
-                              setShowDeleteModal(true);
-                              setDeleteChapter(chapterDetails.chapterNo);
-                            }}
-                          >
-                            <RiDeleteBin6Line />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
+              {book?.chapters?.length > 0 && <ChapterTable book={book} />}
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ const AddBook = () => {
   const navigate = useNavigate();
   const Books = useSelector((state) => state.books.list);
   const [bookDetails, setBookDetails] = useState({
-    id:Books.length+1,
+    id:Books?.length+1,
     title: "",
     author: "",
     pages: "",
@@ -18,7 +18,7 @@ const AddBook = () => {
   });
 
   useEffect(() => {
-    document.title = "Add Book - Booklet"; // set the page title
+    document.title = "Add Book - Booklet";
   }, []);
 
   const handleChange = (e) => {

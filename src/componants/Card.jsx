@@ -7,6 +7,7 @@ const Card = ({ id, title, author, url }) => {
   return (
     <div
       className="col-auto mb-4 card-container"
+      role="button"
       onClick={() => navigate(`/book/${id}`)}
     >
       <img src={url ? url : "images/01.png"} className="img-fluid rounded-2" />

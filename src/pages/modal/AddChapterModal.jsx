@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { useDispatch } from "react-redux";
-import { addChapter} from "/src/redux/bookSlice";
+import { addChapter } from "/src/redux/bookSlice";
 
 const AddChapterModal = ({ book, modalTitle, chapter, showModal, onClose }) => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const AddChapterModal = ({ book, modalTitle, chapter, showModal, onClose }) => {
             <label htmlFor="chapterNo">Chapter No.*</label>
             <input
               type="number"
-              name="chapterNo"  
+              name="chapterNo"
               value={
                 chapterDetails.chapterNo > 0 ? chapterDetails.chapterNo : ""
               }

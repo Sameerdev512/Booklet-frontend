@@ -48,7 +48,7 @@ const BookPage = () => {
 
       const totalChapters = book.chapters.length;
       progress = (completedChapters.length / totalChapters) * 100;
-      setProgress(progress);
+      setProgress(progress);d
     }
   }, [book, Books, showModal]);
 

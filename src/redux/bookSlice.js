@@ -14,7 +14,7 @@ const bookSlice = createSlice({
             chapters: [{
                 chapterNo:1,
                 title: "first chapter",
-                endDate: "12/07/2024",
+                endDate: "2025-08-27",
                 status: "pending"
             }]
         },
